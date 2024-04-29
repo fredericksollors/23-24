@@ -38,7 +38,9 @@ Beginnen sie indem Sie oben Ihren Name in das Feld user.name eingeben.
 Bitte installieren Sie das Paket `stargazer`, falls Sie das bis jetzt noch nicht getan haben. Sie sollten es auch noch laden. Wenn Sie das Paket installieren, installieren Sie es bitte unbedingt direkt über die Konsole und nicht in einem der Chunks des RTutor Problem Sets.
 
 ```{r "1_1"}
+
 library(stargazer)
+
 ```
 
 `stargazer` ermoeglicht eine ansprechende Darstellung von Tabellen, insbesondere in HTMP und Latex, was Sie spaeter fuer die Projekte benoetigen werden.
@@ -46,9 +48,8 @@ library(stargazer)
 a) Im ersten Schritt laden wir die zur Verfuegung stehenden Daten. Laden Sie die unter Daten bereitgestellten `EU_Makro.csv` Daten in R.
 
 ```{r "1_a"}
-____ <- read_csv("____")
 
-# enter your code here ...
+eu_makro <- read_csv("Data/EU_Makro.csv")
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -75,13 +76,9 @@ Auf den ersten Blick ist zu erkennen, das ein positiver Zusammenhang zwischen de
 b) Eine beliebte Methode einen Zusammenhang in einer einzelnen Zahl zusammenzufassen ist eine einfache lineare Regression mittels der Methode der kleinsten Quadrate (engl. Ordinary Least Squares OLS). Regressieren Sie in R `unempl` auf `debt_share_country_pro`. Speichern Sie das Ergebnis in der Variablen `reg1` und zeigen Sie dann eine Zusammenfassung von `reg1`. Bitte kommentieren Sie hierfuer den Code aus und ergaenzen Sie diesen: 
 
 ```{r "1_b"}
-reg1 <- lm(___~debt_share_country_pro, data=___)
-summary(___)
 
-# enter your code here ...
-
-
-# enter your code here ...
+reg1 <- lm(unempl~debt_share_country_pro, data=eu_makro)
+summary(reg1)
 
 ```
 
@@ -104,17 +101,17 @@ Geben Sie hier Ihrer Antwort gerundet auf drei Nachkommastellen ein. Achten Sie 
 
 ```{r "1_c",optional=TRUE}
 
-# enter your code here ...
+6.895
 
 ```
 
 d) Manchmal moechten wir mit den geschaetzten Koeffizienten direkt weiterrechnen. Hierfuer ist die Funktion `coef` nuetzlich. Wenden Sie in einem ersten Schritt die Funktion `coef` auf `reg1` an. Anschliessend speichern Sie bitte den ersten Koeffizienten in der Variable `b0` und den zweiten in der Variable `b1`.
 ```{r "1_d"}
 
-# enter your code here ...
+coef(reg1)
 
-
-# enter your code here ...
+b0 <- coef(reg1)[1]
+b1 <- coef(reg1)[2]
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -122,11 +119,16 @@ Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
 f) Fuegen Sie der Grafik `g1` in "blue" eine Linie mit der in `reg1` berechneten Regressionsgerade hinzu. Speichern Sie diese Grafik als `g2` und lassen Sie sich diese anschliessend anzeigen. Bitte fuellen Sie hierzu die Luecken aus:
 
 ```{r "1_f"}
-g2 <- g1 + geom_abline(intercept=___,slope=___,colour="___")
 
-# enter your code here ...
+# Zugriff auf die Koeffizienten des Regressionsmodells reg1
+b0 <- coef(reg1)[1]
+b1 <- coef(reg1)[2]
+                 
+g2 <- g1 + geom_abline(intercept=b0, slope=b1, colour="blue")
 
+#Anzeigen der Grafik g2
 g2
+
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
 
@@ -134,7 +136,8 @@ g) In einer einfachen linearen Regression von `y` auf `x`, hat der geschaetzte K
 
 ```{r "1_g",optional=TRUE}
 
-# enter your code here ...
+#Berechnung und Anzeige der Korrelation zwischen 'unempl' und 'dept_share_country_pro'
+cor(eu_makro$debt_share_country_pro, eu_makro$unempl, use = "pairwise.complete.obs")
 
 ```
 Das Vorzeichen ist gleich wie von unserem Schaetzer von beta1 in der linearen Regression, aber die Korrelation hat keine intuitive quantitative Interpretation.
@@ -152,6 +155,7 @@ a) Folgender Code simuliert zufaellige Werte von `x` und einer Stoergroesse `u` 
 mit beta0 = 10 und beta1 = 2. Lassen Sie den Code einfach laufen
 
 ```{r "2_a"}
+
 set.seed(1)
 T <-  20 # Zahl der Beobachtungen
 beta0 <- 10; beta1 <- 2;
@@ -161,6 +165,7 @@ x <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4
 x
 y <- beta0 + beta1*x + u
 y
+
 ```
 Wenn wir jetzt `y` auf `x` regressieren, was erwarten wir fuer den Schaetzer von beta1?
 
@@ -171,7 +176,7 @@ Wenn wir jetzt `y` auf `x` regressieren, was erwarten wir fuer den Schaetzer von
 Geben Sie die richtige Loesung 1 oder 2 an.
 ```{r "2_a_2"}
 
-# enter your code here ...
+2
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -179,7 +184,8 @@ Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
 Regressieren Sie nun `y` auf `x` mittels `lm`. Es ist nicht notwendig das Ergebnis zwischenzuspeichern.
 ```{r "2_a_3",optional=TRUE}
 
-# enter your code here ...
+#Durchführung der linearen Regression von y auf x und direkte Ausgabe der Ergebnisse
+lm(y ~ x)
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -188,6 +194,7 @@ Unser Schaetzer ist schon etwas vom wahren Parameter beta1=2 entfernt. Genau wer
 
 b) Folgender Code packt die Simulation und anschliessende Schaetzung in eine Funktion `simulate.and.estimate` und liefert die geschaetzten Koeffizienten von beta1 zurueck. Anschliessend wird die Funktion 3 mal aufgerufen.
 ```{r "2_b"}
+
 simulate.and.estimate <- function(T=20, beta0 = 10, beta1=2) {
   u <- rnorm(T,0,3) # Normalverteilte Stoergroesse
   x <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4
@@ -200,6 +207,7 @@ simulate.and.estimate <- function(T=20, beta0 = 10, beta1=2) {
 simulate.and.estimate()
 simulate.and.estimate()
 simulate.and.estimate()
+
 ```
 Wir finden bei jedem Aufruf einen anderen Schaetzer fuer beta1. Der genaue Wert des Schaetzers haengt von den realisierten Werten von `x` und `u` ab und ist somit zufaellig.
 
@@ -213,16 +221,15 @@ Tippen Sie die korrekte Antwort 1,2 oder 3 ein:
 
 ```{r "2_b_2"}
 
-# enter your code here ...
+2
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
 
 c) Nutzen Sie die Funktion `replicate`, um `simulate.and.estimate` gleich 5000 mal hintereinander aufzurufen. Speichern Sie die Ergebnisse in einem Vektor `sim.beta1` ab.
 ```{r "2_c"}
-____ <- ____(____,simulate.and.estimate())
 
-# enter your code here ...
+sim.beta1 <- replicate(5000,simulate.and.estimate())
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -230,7 +237,8 @@ Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
 Zeigen Sie ein Histogramm von sim.beta1 mit dem Befehl `hist`.
 ```{r "2_c_2",optional=TRUE}
 
-# enter your code here ...
+# Histogramm erstellen
+hist(sim.beta1, main="Histogramm von sim.beta1", xlab="Beta1", col="red")
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -243,7 +251,8 @@ ggplot(mapping=aes(x=sim.beta1)) + geom_density(fill="blue", alpha=0.5) + geom_v
 d) Berechnen Sie nun die Standardabweichung der simulierten Schaetzer `sim.beta1`.
 ```{r "2_d",optional=TRUE}
 
-# enter your code here ...
+#Berechnung und Anzeige der Standarsabweichung
+sd(sim.beta1)
 
 ```
 
@@ -252,9 +261,10 @@ Diese Standardabweichung misst wie stark unser Schaetzer aufgrund der Zufallsein
 e) Auch wenn Sie nur eine Stichprobe haben und nicht tausende Simulationen durchfuehrt, können Sie den Standardfehler eines Schaetzers abschaetzen. Ergaenzen Sie folgenden Code um ein `summary` des Regressionsergebnisses `reg1`.
 
 ```{r "2_e"}
+
 reg1 <-  lm(y~x)
 
-# enter your code here ...
+summary(reg1)
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -278,10 +288,9 @@ Genauere Konfidenzintervalle können Sie mit dem Befehl `confint` berechnen. Wen
 
 ```{r "2_f",optional=TRUE}
 
-# enter your code here ...
+confint(reg1)
 
-
-# enter your code here ...
+confint(reg1, level = 0.99)
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -289,7 +298,9 @@ Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
 g) Uebrigens: Das Paket ggplot erlaubt es auf einfache Art und Weise Regressionsgeraden in einen Scatterplot einzuzeichnen und schattiert dabei ein 95% Konfidenzintervall fuer den Verlauf der Regressionsgeraden. Lassen Sie einfach folgenden Code laufen: 
 
 ```{r "2_g"}
+
 ggplot(mapping = aes(x=x,y=y)) + geom_point()+ geom_smooth(method="lm")
+
 ```
 
 ## Exercise 3 -- t-Werte, p-Werte und die Sternchen
@@ -298,23 +309,33 @@ a) Wir moechten nun den Zusammenhang zwischen der Arbeitslosenquote und dem proz
 
 Laden wir zunaechst nochmal unsere EU Datensatz
 ```{r "3_a"}
+
 eu_makro <- read_csv("./data/EU_Makro.csv")
+
 ```
 
 Lassen Sie nun folgenden Code laufen, der das BIP Wachstum in Prozent fuer jedes Land und Jahr berechnet.
 ```{r "3_a_2"}
+
 eu_makro <-  eu_makro %>%
   group_by(country) %>%
   arrange(year) %>%
   mutate(gdp_growth = 100*(gdp - lag(gdp)) / gdp ) %>%
   ungroup()
+
 ```
 
 Zunaechst moechten wir nur die Daten fuer 3 Laender nutzen: Deutschland, Frankreich und die Niederlande. Filtern Sie die Daten fuer dieser 3 Laender ("country") und speichern Sie diese in der Variablen `dat`.
 
 ```{r "3_a_3"}
 
-# enter your code here ...
+library(dplyr)
+
+#Anzeigen Länder
+unique(eu_makro$country)
+
+#Filtern der Daten für Deutschland, Frankreich und die Niederlande
+dat <- filter(eu_makro, country %in% c("Germany", "France", "Netherlands"))
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -322,10 +343,11 @@ Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
 Regressieren Sie nun die Arbeitslosequote `unempl` auf das BIP Wachstum im Datensatz `dat`. Speichern Sie das Ergebnis in der Variablen `reg1` und zeigen Sie ein `summary` davon.
 ```{r "3_a_4"}
 
-# enter your code here ...
+#Durchführen der linearen Regression von unempl auf gdp_growth
+reg1 <- lm(unempl ~ gdp_growth, data = dat)
 
-
-# enter your code here ...
+#Anzeige einer Zusammenfassung des Regressionsmodells
+summary(reg1)
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -347,7 +369,7 @@ Welche Aussage ist also richtig gegeben _unserer Faustregel_ fuer das 95% Konfid
 Tippen Sie die korrekte Antwort 1,2 oder 3 ein:
 ```{r "3_a_5"}
 
-# enter your code here ...
+1
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -369,7 +391,7 @@ b) Welche Aussage zum p-Wert ist falsch?
 Tippen Sie die korrekte Antwort 1,2 oder 3 ein:
 ```{r "3_b"}
 
-# enter your code here ...
+3
 
 ```
 
@@ -382,7 +404,7 @@ Welche Aussagen sind richtig gemaess unserer Schaetzung?
 Geben Sie als Antwort einen numerischen Vektor mit allen richten Antworten ein, z. B. `c(1,2,3)` wenn Sie glauben alle 3 Antworten sind richtig.
 ```{r "3_b_2"}
 
-# enter your code here ...
+c(3)
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -409,8 +431,10 @@ c) Das R Paket `stargazer` erlaubt es Regressionsergebnisse in einer Tabellenfor
 Aber starren wir doch mal selber nur auf die Sternchen. Folgender Code laesst unser Regression mit den Daten fuer alle Laender laufen und zeigt das Ergebnis mit `stargazer`:
 
 ```{r "3_c"}
+
 reg2 <- lm(unempl~gdp_growth, data=eu_makro)
 stargazer(type = "text", reg2 ,  single.row = TRUE, header = FALSE, digits=2)
+
 ```
 
 Ist der Zusammenhang zwischen der Arbeitslosenquote und BIP Wachstum statistisch signifikant und wenn ja, auf welchem Signifikanz-Niveau?
@@ -426,7 +450,7 @@ Ist der Zusammenhang zwischen der Arbeitslosenquote und BIP Wachstum statistisch
 Geben Sie hier die Ziffer Ihrer Antwort ein und fuehren Sie die Codezeile aus:
 ```{r "3_c_2"}
 
-# enter your code here ...
+3
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -449,7 +473,7 @@ Geben Sie hier die Ziffer Ihrer Antwort ein und fuehren Sie die Codezeile aus:
 
 ```{r "3_d"}
 
-# enter your code here ...
+4
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -464,15 +488,21 @@ Manchmal ist es sinnvoll die abhaengige oder erklaerende Variablen in einer Regr
 a) Folgender Code laedt einen Datensatz mit dem BIP pro Kopf `bip` und den Kapitalstock pro Kopf `k` fuer 133 Laender der Welt in USD fuer das Jahr 2014. Der Datensatz wurde aus den Penn World Tables (siehe https://www.rug.nl/ggdc/productivity/pwt/) erstellt.
 
 ```{r "4_a"}
+
 pwt <- readRDS("./data/pwt_2014.rds")
 head(pwt)
+
 ```
 
 b) Regressieren Sie das BIP pro Kopf `bip` auf den Kapitalstock pro Kopf `k`. Speichern Sie das Ergebnis in `reg1` und zeigen Sie einen `summary` von `reg1`.
 
 ```{r "4_b"}
 
-# enter your code here ...
+#Durchführung der linearen Regression von bip auf k
+reg1 <- lm(bip ~ k, data = pwt)
+
+#Anzeige einer Zusammenfassung des Regressionsmodells
+summary(reg1)
 
 ```
 Was ist eine richtige Interpretation des Koeffizienten von `k`?
@@ -486,7 +516,7 @@ Was ist eine richtige Interpretation des Koeffizienten von `k`?
 Tippen Sie 1,2 oder 3
 ```{r "4_b_2"}
 
-# enter your code here ...
+2
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -496,7 +526,9 @@ Manchmal gibt R Zahlen in wissenschaftlicher Notation aus. Beachten Sie, dass 2.
 c) Folgender Code zeigt den Zusammenhang grafisch
 
 ```{r "4_c"}
+
 ggplot(pwt,aes(x=k,y=bip, label=isocode)) + geom_text() + geom_smooth(method="lm")
+
 ```
 
 Das Bild sieht nicht sonderlich schoen aus. Wir haben sehr viele Laender mit relativ kleinem BIP und Kapitalstock pro Kopf links unten in der Ecke. Weiterhin scheint bei hoeherem BIP (z B. Quatar) der Abstand von der Regressionsgerade viel groesser als bei niedrigem BIP.
@@ -505,14 +537,18 @@ d) Generieren Sie fuer `pwt` mit `mutate` zwei neue Spalten `log_bip` und `log_k
 
 ```{r "4_d"}
 
-# enter your code here ...
+#Erstellen der neuen Spalten log_bip und log_k in pwt
+pwt <- pwt %>%
+  mutate(log_bip = log(bip), log_k = log(k))
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
 
 Wir zeigen jetzt den Zusammenhang der logarithmierten Variablen grafisch:
 ```{r "4_d_2"}
+
 ggplot(pwt,aes(x=log_k,y=log_bip, label=isocode)) + geom_text() + geom_smooth(method="lm")
+
 ```
 
 Das sieht schon viel besser aus. Die Beobachtungen sind viel regelmaessiger um die Regressionsgerade verteilt und es gibt keine groesseren Ausreisser mehr.
@@ -521,7 +557,10 @@ e) Regressieren Sie nun `log_bip` auf `log_k`. Speichern Sie das Ergebnis in `re
 
 ```{r "4_e"}
 
-# enter your code here ...
+#Durchführung der linearen Regression von log_bip auf log_k
+reg2 <- lm(log_bip ~ log_k, data = pwt)
+
+summary(reg2)
 
 ```
 
@@ -536,7 +575,7 @@ Was ist nun die korrekte Interpretation des Koeffizienten vor log_k?
 Schreiben Sie 1,2, oder 3.
 ```{r "4_e_2"}
 
-# enter your code here ...
+3
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!

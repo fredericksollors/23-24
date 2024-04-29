@@ -1,0 +1,190 @@
+{"type":["init_ps"],"time":["2024-04-29 20:02:09"],"user":["Frederick Sollors"],"umph":[1714413729.3458],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 20:02:09"],"user":["Frederick Sollors"],"umph":[1714413729.3834],"ok":[true],"chunk":[1],"ex":[1],"e.ind":[0],"code":["library(stargazer)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 20:02:09"],"user":["Frederick Sollors"],"umph":[1714413729.4882],"ok":[true],"chunk":[2],"ex":[1],"e.ind":[0],"code":["eu_makro <- read_csv(\"Data/EU_Makro.csv\")\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 20:02:09"],"user":["Frederick Sollors"],"umph":[1714413729.6315],"ok":[true],"chunk":[3],"ex":[1],"e.ind":[0],"code":["eu_makro <- eu_makro %>%\n  mutate( debt_share_country_pro = debt_share_country * 100)\n  \ng1 <- eu_makro %>%\n  ggplot(aes(x = debt_share_country_pro, y = unempl)) + geom_point() + \n  xlab(\"Verschuldungsquote in %\") +\n  ylab(\"Arbeitslosenquote in %\")\ng1"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 20:02:09"],"user":["Frederick Sollors"],"umph":[1714413729.6387],"ok":[false],"chunk":[4],"ex":[1],"e.ind":[1],"code":["reg1 <- lm(.PH_._~debt_share_country_pro, data=.PH_._)\nsummary(.PH_._)\n\n# enter your code here ...\n\n\n# enter your code here ...\n"],"message":["\nYou have not made a correct assignment to reg1 in chunk 1_b."]}
+,
+{"type":["check_ps"],"time":["2024-04-29 20:03:09"],"user":["Frederick Sollors"],"umph":[1714413789.0894],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 20:03:09"],"user":["Frederick Sollors"],"umph":[1714413789.1162],"ok":[false],"chunk":[4],"ex":[1],"e.ind":[1],"code":["reg1 <- lm(.PH_._~debt_share_country_pro, data=.PH_._)\nsummary(.PH_._)\n\n# enter your code here ...\n\n\n# enter your code here ...\n"],"message":["\nYou have not made a correct assignment to reg1 in chunk 1_b."]}
+,
+{"type":["check_ps"],"time":["2024-04-29 20:03:58"],"user":["Frederick Sollors"],"umph":[1714413838.6105],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 20:03:58"],"user":["Frederick Sollors"],"umph":[1714413838.6193],"ok":[false],"chunk":[4],"ex":[1],"e.ind":[1],"code":["reg1 <- lm(.PH_._~debt_share_country_pro, data=.PH_._)\nsummary(.PH_._)\n\n# enter your code here ...\n\n\n# enter your code here ...\n"],"message":["\nYou have not made a correct assignment to reg1 in chunk 1_b."]}
+,
+{"type":["check_ps"],"time":["2024-04-29 20:19:34"],"user":["Frederick Sollors"],"umph":[1714414774.8136],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 20:19:34"],"user":["Frederick Sollors"],"umph":[1714414774.8413],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0],"code":["reg1 <- lm(unempl~debt_share_country_pro, data=eu_makro)\nsummary(reg1)\n\n# enter your code here ...\n\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 20:19:34"],"user":["Frederick Sollors"],"umph":[1714414774.8478],"ok":[false],"chunk":[5],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_c."]}
+,
+{"type":["check_ps"],"time":["2024-04-29 21:11:16"],"user":["Frederick Sollors"],"umph":[1714417876.9129],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:11:16"],"user":["Frederick Sollors"],"umph":[1714417876.9247],"ok":[true],"chunk":[1],"ex":[1],"e.ind":[0],"code":["\nlibrary(stargazer)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:11:17"],"user":["Frederick Sollors"],"umph":[1714417877.066],"ok":[true],"chunk":[2],"ex":[1],"e.ind":[0],"code":["\neu_makro <- read_csv(\"Data/EU_Makro.csv\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:11:17"],"user":["Frederick Sollors"],"umph":[1714417877.1312],"ok":[true],"chunk":[3],"ex":[1],"e.ind":[0],"code":["eu_makro <- eu_makro %>%\n  mutate( debt_share_country_pro = debt_share_country * 100)\n  \ng1 <- eu_makro %>%\n  ggplot(aes(x = debt_share_country_pro, y = unempl)) + geom_point() + \n  xlab(\"Verschuldungsquote in %\") +\n  ylab(\"Arbeitslosenquote in %\")\ng1"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:11:17"],"user":["Frederick Sollors"],"umph":[1714417877.1399],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0],"code":["\nreg1 <- lm(unempl~debt_share_country_pro, data=eu_makro)\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:11:17"],"user":["Frederick Sollors"],"umph":[1714417877.1435],"ok":[true],"chunk":[5],"ex":[1],"e.ind":[0],"code":["\n6.895\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:11:17"],"user":["Frederick Sollors"],"umph":[1714417877.1507],"ok":[true],"chunk":[6],"ex":[1],"e.ind":[0],"code":["\ncoef(reg1)\n\nb0 <- coef(reg1)[1]\nb1 <- coef(reg1)[2]\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:11:17"],"user":["Frederick Sollors"],"umph":[1714417877.2346],"ok":[false],"chunk":[7],"ex":[1],"e.ind":[1],"code":["\n# Zugriff auf die Koeffizienten des Regressionsmodells reg1\nb0 <- coef(reg1)[1]\nb1 <- coef(reg1)[2]\n                 \ng2 <- g1 + geom_abline(intercept=b0,slope=b1,colour=\"red\")\n\n#Anzeigen der Grafik g2\ng2\n"],"message":["\nYou have not made a correct assignment to g2 in chunk 1_f."]}
+,
+{"type":["check_ps"],"time":["2024-04-29 21:13:39"],"user":["Frederick Sollors"],"umph":[1714418019.1681],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:39"],"user":["Frederick Sollors"],"umph":[1714418019.2424],"ok":[false],"chunk":[7],"ex":[1],"e.ind":[1],"code":["\n# Zugriff auf die Koeffizienten des Regressionsmodells reg1\nb0 <- coef(reg1)[1]\nb1 <- coef(reg1)[2]\n                 \ng2 <- g1 + geom_abline(intercept=b0, slope=b1, colour=\"red\")\n\n#Anzeigen der Grafik g2\ng2\n"],"message":["\nYou have not made a correct assignment to g2 in chunk 1_f."]}
+,
+{"type":["check_ps"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.007],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.0708],"ok":[true],"chunk":[7],"ex":[1],"e.ind":[0],"code":["\n# Zugriff auf die Koeffizienten des Regressionsmodells reg1\nb0 <- coef(reg1)[1]\nb1 <- coef(reg1)[2]\n                 \ng2 <- g1 + geom_abline(intercept=b0, slope=b1, colour=\"blue\")\n\n#Anzeigen der Grafik g2\ng2\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.0768],"ok":[true],"chunk":[8],"ex":[1],"e.ind":[0],"code":["\n#Berechnung und Anzeige der Korrelation zwischen 'unempl' und 'dept_share_country_pro'\ncor(eu_makro$debt_share_country_pro, eu_makro$unempl, use = \"pairwise.complete.obs\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.0949],"ok":[true],"chunk":[9],"ex":[2],"e.ind":[0],"code":["\nset.seed(1)\nT <-  20 # Zahl der Beobachtungen\nbeta0 <- 10; beta1 <- 2;\nu <- rnorm(T,0,3) # Normalverteilte Stoergroesse\nu\nx <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\nx\ny <- beta0 + beta1*x + u\ny\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.0986],"ok":[true],"chunk":[10],"ex":[2],"e.ind":[0],"code":["\n2\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.1029],"ok":[true],"chunk":[11],"ex":[2],"e.ind":[0],"code":["\n#Durchführung der linearen Regression von y auf x und direkte Ausgabe der Ergebnisse\nlm(y ~ x)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.1433],"ok":[true],"chunk":[12],"ex":[2],"e.ind":[0],"code":["\nsimulate.and.estimate <- function(T=20, beta0 = 10, beta1=2) {\n  u <- rnorm(T,0,3) # Normalverteilte Stoergroesse\n  x <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\n  y <- beta0 + beta1*x + u\n  # Anmerkung lm.fit lauft schneller als\n  # lm, hat aber keinen so schoenen Syntax\n  reg <- lm.fit(x=cbind(1,x),y=y)\n  coef(reg)[2]\n}\nsimulate.and.estimate()\nsimulate.and.estimate()\nsimulate.and.estimate()\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.1488],"ok":[true],"chunk":[13],"ex":[2],"e.ind":[0],"code":["\n2\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.5111],"ok":[true],"chunk":[14],"ex":[2],"e.ind":[0],"code":["\nsim.beta1 <- replicate(5000,simulate.and.estimate())\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.5247],"ok":[true],"chunk":[15],"ex":[2],"e.ind":[0],"code":["\n# Histogramm erstellen\nhist(sim.beta1, main=\"Histogramm von sim.beta1\", xlab=\"Beta1\", col=\"red\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.5912],"ok":[true],"chunk":[16],"ex":[2],"e.ind":[0],"code":["ggplot(mapping=aes(x=sim.beta1)) + geom_density(fill=\"blue\", alpha=0.5) + geom_vline(xintercept = 2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.5961],"ok":[true],"chunk":[17],"ex":[2],"e.ind":[0],"code":["\n#Berechnung und Anzeige der Standarsabweichung\nsd(sim.beta1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.6032],"ok":[true],"chunk":[18],"ex":[2],"e.ind":[0],"code":["\nreg1 <-  lm(y~x)\n\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.6097],"ok":[true],"chunk":[19],"ex":[2],"e.ind":[0],"code":["\nconfint(reg1)\n\nconfint(reg1, level = 0.99)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.6789],"ok":[true],"chunk":[20],"ex":[2],"e.ind":[0],"code":["\nggplot(mapping = aes(x=x,y=y)) + geom_point()+ geom_smooth(method=\"lm\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.7185],"ok":[true],"chunk":[21],"ex":[3],"e.ind":[0],"code":["\neu_makro <- read_csv(\"./data/EU_Makro.csv\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.7303],"ok":[true],"chunk":[22],"ex":[3],"e.ind":[0],"code":["\neu_makro <-  eu_makro %>%\n  group_by(country) %>%\n  arrange(year) %>%\n  mutate(gdp_growth = 100*(gdp - lag(gdp)) / gdp ) %>%\n  ungroup()\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.7449],"ok":[true],"chunk":[23],"ex":[3],"e.ind":[0],"code":["\nlibrary(dplyr)\n\n#Anzeigen Länder\nunique(eu_makro$country)\n\n#Filtern der Daten für Deutschland, Frankreich und die Niederlande\ndat <- filter(eu_makro, country %in% c(\"Germany\", \"France\", \"Netherlands\"))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.7529],"ok":[true],"chunk":[24],"ex":[3],"e.ind":[0],"code":["\n#Durchführen der linearen Regression von unempl auf gdp_growth\nreg1 <- lm(unempl ~ gdp_growth, data = dat)\n\n#Anzeige einer Zusammenfassung des Regressionsmodells\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.757],"ok":[true],"chunk":[25],"ex":[3],"e.ind":[0],"code":["\n1\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.7609],"ok":[true],"chunk":[26],"ex":[3],"e.ind":[0],"code":["\n3\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.8085],"ok":[true],"chunk":[27],"ex":[3],"e.ind":[0],"code":["\nc(3)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.905],"ok":[true],"chunk":[28],"ex":[3],"e.ind":[0],"code":["\nreg2 <- lm(unempl~gdp_growth, data=eu_makro)\nstargazer(type = \"text\", reg2 ,  single.row = TRUE, header = FALSE, digits=2)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.9108],"ok":[true],"chunk":[29],"ex":[3],"e.ind":[0],"code":["\n3\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.9145],"ok":[true],"chunk":[30],"ex":[3],"e.ind":[0],"code":["\n4\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.9416],"ok":[true],"chunk":[31],"ex":[4],"e.ind":[0],"code":["\npwt <- readRDS(\"./data/pwt_2014.rds\")\nhead(pwt)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.9496],"ok":[true],"chunk":[32],"ex":[4],"e.ind":[0],"code":["\n#Durchführung der linearen Regression von bip auf k\nreg1 <- lm(bip ~ k, data = pwt)\n\n#Anzeige einer Zusammenfassung des Regressionsmodells\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:55"],"user":["Frederick Sollors"],"umph":[1714418035.9533],"ok":[true],"chunk":[33],"ex":[4],"e.ind":[0],"code":["\n2\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:56"],"user":["Frederick Sollors"],"umph":[1714418036.0483],"ok":[true],"chunk":[34],"ex":[4],"e.ind":[0],"code":["\nggplot(pwt,aes(x=k,y=bip, label=isocode)) + geom_text() + geom_smooth(method=\"lm\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:56"],"user":["Frederick Sollors"],"umph":[1714418036.055],"ok":[true],"chunk":[35],"ex":[4],"e.ind":[0],"code":["\n#Erstellen der neuen Spalten log_bip und log_k in pwt\npwt <- pwt %>%\n  mutate(log_bip = log(bip), log_k = log(k))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:56"],"user":["Frederick Sollors"],"umph":[1714418036.1892],"ok":[true],"chunk":[36],"ex":[4],"e.ind":[0],"code":["\nggplot(pwt,aes(x=log_k,y=log_bip, label=isocode)) + geom_text() + geom_smooth(method=\"lm\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:56"],"user":["Frederick Sollors"],"umph":[1714418036.1977],"ok":[true],"chunk":[37],"ex":[4],"e.ind":[0],"code":["\n#Durchführung der linearen Regression von log_bip auf log_k\nreg2 <- lm(log_bip ~ log_k, data = pwt)\n\nsummary(reg2)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:13:56"],"user":["Frederick Sollors"],"umph":[1714418036.2036],"ok":[true],"chunk":[38],"ex":[4],"e.ind":[0],"code":["\n3\n"],"message":[""]}
+,
+{"type":["grade_ps"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.2833],"ok":[true]}
+,
+{"type":["init_ps"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.2991],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.3052],"ok":[true],"chunk":[1],"ex":[1],"e.ind":[0],"code":["\nlibrary(stargazer)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.464],"ok":[true],"chunk":[2],"ex":[1],"e.ind":[0],"code":["\neu_makro <- read_csv(\"Data/EU_Makro.csv\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.5176],"ok":[true],"chunk":[3],"ex":[1],"e.ind":[0],"code":["eu_makro <- eu_makro %>%\n  mutate( debt_share_country_pro = debt_share_country * 100)\n  \ng1 <- eu_makro %>%\n  ggplot(aes(x = debt_share_country_pro, y = unempl)) + geom_point() + \n  xlab(\"Verschuldungsquote in %\") +\n  ylab(\"Arbeitslosenquote in %\")\ng1"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.5255],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0],"code":["\nreg1 <- lm(unempl~debt_share_country_pro, data=eu_makro)\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.5286],"ok":[true],"chunk":[5],"ex":[1],"e.ind":[0],"code":["\n6.895\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.5356],"ok":[true],"chunk":[6],"ex":[1],"e.ind":[0],"code":["\ncoef(reg1)\n\nb0 <- coef(reg1)[1]\nb1 <- coef(reg1)[2]\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.6055],"ok":[true],"chunk":[7],"ex":[1],"e.ind":[0],"code":["\n# Zugriff auf die Koeffizienten des Regressionsmodells reg1\nb0 <- coef(reg1)[1]\nb1 <- coef(reg1)[2]\n                 \ng2 <- g1 + geom_abline(intercept=b0, slope=b1, colour=\"blue\")\n\n#Anzeigen der Grafik g2\ng2\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.6098],"ok":[true],"chunk":[8],"ex":[1],"e.ind":[0],"code":["\n#Berechnung und Anzeige der Korrelation zwischen 'unempl' und 'dept_share_country_pro'\ncor(eu_makro$debt_share_country_pro, eu_makro$unempl, use = \"pairwise.complete.obs\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.628],"ok":[true],"chunk":[9],"ex":[2],"e.ind":[0],"code":["\nset.seed(1)\nT <-  20 # Zahl der Beobachtungen\nbeta0 <- 10; beta1 <- 2;\nu <- rnorm(T,0,3) # Normalverteilte Stoergroesse\nu\nx <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\nx\ny <- beta0 + beta1*x + u\ny\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.6308],"ok":[true],"chunk":[10],"ex":[2],"e.ind":[0],"code":["\n2\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.6343],"ok":[true],"chunk":[11],"ex":[2],"e.ind":[0],"code":["\n#Durchführung der linearen Regression von y auf x und direkte Ausgabe der Ergebnisse\nlm(y ~ x)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.6378],"ok":[true],"chunk":[12],"ex":[2],"e.ind":[0],"code":["\nsimulate.and.estimate <- function(T=20, beta0 = 10, beta1=2) {\n  u <- rnorm(T,0,3) # Normalverteilte Stoergroesse\n  x <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\n  y <- beta0 + beta1*x + u\n  # Anmerkung lm.fit lauft schneller als\n  # lm, hat aber keinen so schoenen Syntax\n  reg <- lm.fit(x=cbind(1,x),y=y)\n  coef(reg)[2]\n}\nsimulate.and.estimate()\nsimulate.and.estimate()\nsimulate.and.estimate()\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.6412],"ok":[true],"chunk":[13],"ex":[2],"e.ind":[0],"code":["\n2\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.9868],"ok":[true],"chunk":[14],"ex":[2],"e.ind":[0],"code":["\nsim.beta1 <- replicate(5000,simulate.and.estimate())\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:52"],"user":["Frederick Sollors"],"umph":[1714418092.999],"ok":[true],"chunk":[15],"ex":[2],"e.ind":[0],"code":["\n# Histogramm erstellen\nhist(sim.beta1, main=\"Histogramm von sim.beta1\", xlab=\"Beta1\", col=\"red\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.0652],"ok":[true],"chunk":[16],"ex":[2],"e.ind":[0],"code":["ggplot(mapping=aes(x=sim.beta1)) + geom_density(fill=\"blue\", alpha=0.5) + geom_vline(xintercept = 2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.0687],"ok":[true],"chunk":[17],"ex":[2],"e.ind":[0],"code":["\n#Berechnung und Anzeige der Standarsabweichung\nsd(sim.beta1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.0757],"ok":[true],"chunk":[18],"ex":[2],"e.ind":[0],"code":["\nreg1 <-  lm(y~x)\n\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.0817],"ok":[true],"chunk":[19],"ex":[2],"e.ind":[0],"code":["\nconfint(reg1)\n\nconfint(reg1, level = 0.99)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.1537],"ok":[true],"chunk":[20],"ex":[2],"e.ind":[0],"code":["\nggplot(mapping = aes(x=x,y=y)) + geom_point()+ geom_smooth(method=\"lm\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.1954],"ok":[true],"chunk":[21],"ex":[3],"e.ind":[0],"code":["\neu_makro <- read_csv(\"./data/EU_Makro.csv\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.2074],"ok":[true],"chunk":[22],"ex":[3],"e.ind":[0],"code":["\neu_makro <-  eu_makro %>%\n  group_by(country) %>%\n  arrange(year) %>%\n  mutate(gdp_growth = 100*(gdp - lag(gdp)) / gdp ) %>%\n  ungroup()\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.2136],"ok":[true],"chunk":[23],"ex":[3],"e.ind":[0],"code":["\nlibrary(dplyr)\n\n#Anzeigen Länder\nunique(eu_makro$country)\n\n#Filtern der Daten für Deutschland, Frankreich und die Niederlande\ndat <- filter(eu_makro, country %in% c(\"Germany\", \"France\", \"Netherlands\"))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.221],"ok":[true],"chunk":[24],"ex":[3],"e.ind":[0],"code":["\n#Durchführen der linearen Regression von unempl auf gdp_growth\nreg1 <- lm(unempl ~ gdp_growth, data = dat)\n\n#Anzeige einer Zusammenfassung des Regressionsmodells\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.2247],"ok":[true],"chunk":[25],"ex":[3],"e.ind":[0],"code":["\n1\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.2279],"ok":[true],"chunk":[26],"ex":[3],"e.ind":[0],"code":["\n3\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.231],"ok":[true],"chunk":[27],"ex":[3],"e.ind":[0],"code":["\nc(3)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.3848],"ok":[true],"chunk":[28],"ex":[3],"e.ind":[0],"code":["\nreg2 <- lm(unempl~gdp_growth, data=eu_makro)\nstargazer(type = \"text\", reg2 ,  single.row = TRUE, header = FALSE, digits=2)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.3884],"ok":[true],"chunk":[29],"ex":[3],"e.ind":[0],"code":["\n3\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.3911],"ok":[true],"chunk":[30],"ex":[3],"e.ind":[0],"code":["\n4\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.4057],"ok":[true],"chunk":[31],"ex":[4],"e.ind":[0],"code":["\npwt <- readRDS(\"./data/pwt_2014.rds\")\nhead(pwt)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.4118],"ok":[true],"chunk":[32],"ex":[4],"e.ind":[0],"code":["\n#Durchführung der linearen Regression von bip auf k\nreg1 <- lm(bip ~ k, data = pwt)\n\n#Anzeige einer Zusammenfassung des Regressionsmodells\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.4149],"ok":[true],"chunk":[33],"ex":[4],"e.ind":[0],"code":["\n2\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.4972],"ok":[true],"chunk":[34],"ex":[4],"e.ind":[0],"code":["\nggplot(pwt,aes(x=k,y=bip, label=isocode)) + geom_text() + geom_smooth(method=\"lm\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.5035],"ok":[true],"chunk":[35],"ex":[4],"e.ind":[0],"code":["\n#Erstellen der neuen Spalten log_bip und log_k in pwt\npwt <- pwt %>%\n  mutate(log_bip = log(bip), log_k = log(k))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.6138],"ok":[true],"chunk":[36],"ex":[4],"e.ind":[0],"code":["\nggplot(pwt,aes(x=log_k,y=log_bip, label=isocode)) + geom_text() + geom_smooth(method=\"lm\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.6209],"ok":[true],"chunk":[37],"ex":[4],"e.ind":[0],"code":["\n#Durchführung der linearen Regression von log_bip auf log_k\nreg2 <- lm(log_bip ~ log_k, data = pwt)\n\nsummary(reg2)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-04-29 21:14:53"],"user":["Frederick Sollors"],"umph":[1714418093.6242],"ok":[true],"chunk":[38],"ex":[4],"e.ind":[0],"code":["\n3\n"],"message":[""]}
+,
