@@ -1,0 +1,340 @@
+{"type":["init_ps"],"time":["2024-05-06 20:44:08"],"user":["Frederick Sollors"],"umph":[1715021048.9162],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 20:44:09"],"user":["Frederick Sollors"],"umph":[1715021049.2049],"ok":[true],"chunk":[1],"ex":[1],"e.ind":[0],"code":["\nlibrary(wooldridge)\ndata(wage1)\nhead(wage1)\nskim(wage1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 20:44:09"],"user":["Frederick Sollors"],"umph":[1715021049.2145],"ok":[true],"chunk":[2],"ex":[1],"e.ind":[0],"code":["\nlibrary(stats)\n\n# Durchführung der linearen Regression\nreg1 <- lm(wage ~ educ, data = wage1)\n\n# Anzeigen der Zusammenfassung des Regressionsmodells\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 20:44:09"],"user":["Frederick Sollors"],"umph":[1715021049.2197],"ok":[false],"chunk":[3],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_c."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 20:47:29"],"user":["Frederick Sollors"],"umph":[1715021249.566],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 20:47:29"],"user":["Frederick Sollors"],"umph":[1715021249.5896],"ok":[false],"chunk":[3],"ex":[1],"e.ind":[1],"code":["\n\"ja\"\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_c."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 20:47:54"],"user":["Frederick Sollors"],"umph":[1715021274.2274],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 20:47:54"],"user":["Frederick Sollors"],"umph":[1715021274.2406],"ok":[true],"chunk":[3],"ex":[1],"e.ind":[0],"code":["\n\"nein\"\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 20:47:54"],"user":["Frederick Sollors"],"umph":[1715021274.3284],"ok":[false],"chunk":[4],"ex":[1],"e.ind":[0],"code":["wage1 %>%\n mutate(gender = ifelse(female==1,\".PH_._\",\".PH_._\")) %>%\n group_by(gender) %>%\n summarize(mean(.PH_._))\n\n# enter your code here ...\n"],"message":["evaluation error in \n  wage1 %>% mutate(gender = ifelse(female == 1, \"___\", \"___\")) %>% group_by(gender) %>% summarize(mean(___))\n  \u001b[1m\u001b[33mError\u001b[39m in `summarize()`:\u001b[22m\n\u001b[38;5;252m\u001b[36mℹ\u001b[38;5;252m In argument: `mean(___)`.\n\u001b[36mℹ\u001b[38;5;252m In group 1: `gender = \"___\"`.\u001b[39m\n\u001b[1mCaused by error:\u001b[22m\n\u001b[33m!\u001b[39m object '___' not found\n"]}
+,
+{"type":["check_ps"],"time":["2024-05-06 20:51:45"],"user":["Frederick Sollors"],"umph":[1715021505.4701],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 20:51:45"],"user":["Frederick Sollors"],"umph":[1715021505.5135],"ok":[false],"chunk":[4],"ex":[1],"e.ind":[1],"code":["\nwage1 %>%\n mutate(gender = ifelse(female==1,\"Female\",\"Male\")) %>%\n group_by(gender) %>%\n summarize(mean(educ, na.rm = TRUE))\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_e."]}
+,
+{"type":["hint"],"time":["2024-05-06 20:52:15"],"user":["Frederick Sollors"],"umph":[1715021535.1763],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[1]}
+,
+{"type":["check_ps"],"time":["2024-05-06 20:55:25"],"user":["Frederick Sollors"],"umph":[1715021725.4788],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 20:55:25"],"user":["Frederick Sollors"],"umph":[1715021725.5259],"ok":[false],"chunk":[4],"ex":[1],"e.ind":[1],"code":["\nwage1 %>%\n mutate(gender = ifelse(female == 1,\"Female\",\"Male\")) %>%\n group_by(gender) %>%\n summarize(mean(educ, na.rm = TRUE))\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_e."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 20:56:49"],"user":["Frederick Sollors"],"umph":[1715021809.133],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 20:56:49"],"user":["Frederick Sollors"],"umph":[1715021809.1712],"ok":[false],"chunk":[4],"ex":[1],"e.ind":[1],"code":["\nwage1 %>%\n mutate(gender = ifelse(female == 1,\"Female\",\"Male\")) %>%\n group_by(gender) %>%\n summarize(mean_educ = mean(educ, na.rm = TRUE))\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_e."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 20:59:18"],"user":["Frederick Sollors"],"umph":[1715021958.0429],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 20:59:18"],"user":["Frederick Sollors"],"umph":[1715021958.1031],"ok":[false],"chunk":[4],"ex":[1],"e.ind":[1],"code":["\nwage1 %>%\n mutate(gender = ifelse(female == 1,\"Female\", \"Male\")) %>%\n group_by(gender) %>%\n summarize(mean(educ, na.rm = TRUE)) \n"],"message":["\nYou have not yet entered all correct commands in chunk 1_e."]}
+,
+{"type":["hint"],"time":["2024-05-06 20:59:26"],"user":["Frederick Sollors"],"umph":[1715021966.0237],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[1]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:00:12"],"user":["Frederick Sollors"],"umph":[1715022012.6713],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:00:12"],"user":["Frederick Sollors"],"umph":[1715022012.7147],"ok":[false],"chunk":[4],"ex":[1],"e.ind":[1],"code":["\nwage1 %>%\n mutate(gender = ifelse(female == 1,\"female\", \"male\")) %>%\n group_by(gender) %>%\n summarize(mean(educ, na.rm = TRUE)) \n"],"message":["\nYou have not yet entered all correct commands in chunk 1_e."]}
+,
+{"type":["hint"],"time":["2024-05-06 21:00:33"],"user":["Frederick Sollors"],"umph":[1715022033.0993],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[1]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:01:18"],"user":["Frederick Sollors"],"umph":[1715022078.726],"ok":[true]}
+,
+{"type":["hint"],"time":["2024-05-06 21:01:24"],"user":["Frederick Sollors"],"umph":[1715022084.3271],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:02:08"],"user":["Frederick Sollors"],"umph":[1715022128.5333],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:02:08"],"user":["Frederick Sollors"],"umph":[1715022128.5684],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0],"code":["\nwage1 %>%\n mutate(gender = ifelse(female == 1,\"female\", \"male\")) %>%\n group_by(gender) %>%\n summarize(mean(educ))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:02:08"],"user":["Frederick Sollors"],"umph":[1715022128.5997],"ok":[true],"chunk":[5],"ex":[1],"e.ind":[0],"code":["grViz('digraph G {\n\nx [label=\"Ausbildungsjahre x\"]\ny [label=\"Stundenlohn y\"]\nw [label=\"maennlich\"]\n\nx -> y [label=\"+\"];\nw -> x [label=\"+\"];\nw -> y [label=\"+\"];\n}')"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:02:08"],"user":["Frederick Sollors"],"umph":[1715022128.6063],"ok":[false],"chunk":[6],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_e_3."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:05:43"],"user":["Frederick Sollors"],"umph":[1715022343.2945],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:05:43"],"user":["Frederick Sollors"],"umph":[1715022343.3473],"ok":[true],"chunk":[5],"ex":[1],"e.ind":[0],"code":["\ngrViz('digraph G {\n\nx [label=\"Ausbildungsjahre x\"]\ny [label=\"Stundenlohn y\"]\nw [label=\"maennlich\"]\n\nx -> y [label=\"+\"];\nw -> x [label=\"+\"];\nw -> y [label=\"+\"];\n}')\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:05:43"],"user":["Frederick Sollors"],"umph":[1715022343.3606],"ok":[true],"chunk":[6],"ex":[1],"e.ind":[0],"code":["\n1\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:05:43"],"user":["Frederick Sollors"],"umph":[1715022343.3796],"ok":[true],"chunk":[7],"ex":[1],"e.ind":[0],"code":["reg2 <- lm(wage ~ educ + female, data=wage1)\nsummary(reg2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:05:43"],"user":["Frederick Sollors"],"umph":[1715022343.4013],"ok":[true],"chunk":[8],"ex":[1],"e.ind":[0],"code":["grViz('digraph G {\nx -> y [label=\"+\"];\nw -> y [label=\"+\"];\n}')"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:05:43"],"user":["Frederick Sollors"],"umph":[1715022343.4079],"ok":[false],"chunk":[9],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_g_2."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:08:16"],"user":["Frederick Sollors"],"umph":[1715022496.4767],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:08:16"],"user":["Frederick Sollors"],"umph":[1715022496.5096],"ok":[true],"chunk":[7],"ex":[1],"e.ind":[0],"code":["\nreg2 <- lm(wage ~ educ + female, data=wage1)\nsummary(reg2)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:08:16"],"user":["Frederick Sollors"],"umph":[1715022496.531],"ok":[true],"chunk":[8],"ex":[1],"e.ind":[0],"code":["\ngrViz('digraph G {\nx -> y [label=\"+\"];\nw -> y [label=\"+\"];\n}')\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:08:16"],"user":["Frederick Sollors"],"umph":[1715022496.5356],"ok":[true],"chunk":[9],"ex":[1],"e.ind":[0],"code":["\n\"unverzerrt\"\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:08:16"],"user":["Frederick Sollors"],"umph":[1715022496.665],"ok":[true],"chunk":[10],"ex":[1],"e.ind":[0],"code":["########################################\n# Beispiel 1: w hat nur Einfluss auf y\n########################################\nset.seed(123)\nn <- 10000\nbeta1 <- 2 # wahrer kausaler effekt\nw <- rnorm(n,0,1)\nx <- rnorm(n,0,1)\ny <- beta1*x + w + rnorm(n,0,1)\n\n# Regression mit w als Kontrollvariable\nreg1 <- lm(y~x+w)\n# Regression ohne w als Kontrollvariable\nreg2 <- lm(y~x)\n# Zeige Ergbenisse nebeneinander\nlibrary(stargazer)\nstargazer(reg1, reg2, type=\"text\", digits=3, keep.stat=c(\"n\"))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:08:16"],"user":["Frederick Sollors"],"umph":[1715022496.7866],"ok":[true],"chunk":[11],"ex":[1],"e.ind":[0],"code":["########################################\n# Beispiel 2: w hat Einfluss auf y und x\n########################################\nset.seed(123)\nn <- 10000\nbeta1 <- 2 # wahrer kausaler effekt\nw <- rnorm(n,0,1)\nx <- rnorm(n,0,1) + w\ny <- beta1*x + w + rnorm(n,0,1)\n\n# Regression mit w als Kontrollvariable\nreg1 <- lm(y~x+w)\n# Regression ohne w als Kontrollvariable\nreg2 <- lm(y~x)\n# Zeige Ergbenisse nebeneinander\nstargazer(reg1, reg2, type=\"text\", digits=3, keep.stat=c(\"n\"))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:08:16"],"user":["Frederick Sollors"],"umph":[1715022496.7907],"ok":[false],"chunk":[12],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_g_5."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:09:40"],"user":["Frederick Sollors"],"umph":[1715022580.5594],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:09:40"],"user":["Frederick Sollors"],"umph":[1715022580.7116],"ok":[true],"chunk":[10],"ex":[1],"e.ind":[0],"code":["\n########################################\n# Beispiel 1: w hat nur Einfluss auf y\n########################################\nset.seed(123)\nn <- 10000\nbeta1 <- 2 # wahrer kausaler effekt\nw <- rnorm(n,0,1)\nx <- rnorm(n,0,1)\ny <- beta1*x + w + rnorm(n,0,1)\n\n# Regression mit w als Kontrollvariable\nreg1 <- lm(y~x+w)\n# Regression ohne w als Kontrollvariable\nreg2 <- lm(y~x)\n# Zeige Ergbenisse nebeneinander\nlibrary(stargazer)\nstargazer(reg1, reg2, type=\"text\", digits=3, keep.stat=c(\"n\"))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:09:40"],"user":["Frederick Sollors"],"umph":[1715022580.8261],"ok":[true],"chunk":[11],"ex":[1],"e.ind":[0],"code":["\n########################################\n# Beispiel 2: w hat Einfluss auf y und x\n########################################\nset.seed(123)\nn <- 10000\nbeta1 <- 2 # wahrer kausaler effekt\nw <- rnorm(n,0,1)\nx <- rnorm(n,0,1) + w\ny <- beta1*x + w + rnorm(n,0,1)\n\n# Regression mit w als Kontrollvariable\nreg1 <- lm(y~x+w)\n# Regression ohne w als Kontrollvariable\nreg2 <- lm(y~x)\n# Zeige Ergbenisse nebeneinander\nstargazer(reg1, reg2, type=\"text\", digits=3, keep.stat=c(\"n\"))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:09:40"],"user":["Frederick Sollors"],"umph":[1715022580.8301],"ok":[false],"chunk":[12],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_g_5."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:11:55"],"user":["Frederick Sollors"],"umph":[1715022715.862],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:11:55"],"user":["Frederick Sollors"],"umph":[1715022715.8892],"ok":[false],"chunk":[12],"ex":[1],"e.ind":[1],"code":["\n\"ja\"\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_g_5."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:12:18"],"user":["Frederick Sollors"],"umph":[1715022738.7182],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:12:18"],"user":["Frederick Sollors"],"umph":[1715022738.7327],"ok":[true],"chunk":[12],"ex":[1],"e.ind":[0],"code":["\n\"nein\"\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:12:18"],"user":["Frederick Sollors"],"umph":[1715022738.7445],"ok":[true],"chunk":[13],"ex":[1],"e.ind":[0],"code":["confint(lm(y~x))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:12:18"],"user":["Frederick Sollors"],"umph":[1715022738.753],"ok":[false],"chunk":[14],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_g_7."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:14:19"],"user":["Frederick Sollors"],"umph":[1715022859.5851],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:14:19"],"user":["Frederick Sollors"],"umph":[1715022859.6187],"ok":[true],"chunk":[13],"ex":[1],"e.ind":[0],"code":["\nconfint(lm(y~x))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:14:19"],"user":["Frederick Sollors"],"umph":[1715022859.6284],"ok":[true],"chunk":[14],"ex":[1],"e.ind":[0],"code":["\nconfint(reg2, level = 0.99)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:14:19"],"user":["Frederick Sollors"],"umph":[1715022859.6326],"ok":[true],"chunk":[15],"ex":[1],"e.ind":[0],"code":["cor(wage1$exper,wage1$wage)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:14:19"],"user":["Frederick Sollors"],"umph":[1715022859.6367],"ok":[true],"chunk":[16],"ex":[1],"e.ind":[0],"code":["cor(wage1$exper,wage1$educ)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:14:19"],"user":["Frederick Sollors"],"umph":[1715022859.6618],"ok":[true],"chunk":[17],"ex":[1],"e.ind":[0],"code":["grViz('digraph G {\n\nx [label=\"Ausbildungsjahre x\"]\ny [label=\"Stundenlohn y\"]\nw [label=\"Arbeitserfahrung\"]\n\nx -> y [label=\"+\"];\nx -> w [label=\"-\"];\nw -> y [label=\"+\"];\n}')\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:14:19"],"user":["Frederick Sollors"],"umph":[1715022859.6665],"ok":[true],"chunk":[18],"ex":[1],"e.ind":[0],"code":["coef(lm(wage~educ, data=wage1))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:14:19"],"user":["Frederick Sollors"],"umph":[1715022859.6718],"ok":[false],"chunk":[19],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_h_5."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:18:51"],"user":["Frederick Sollors"],"umph":[1715023131.8711],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:18:51"],"user":["Frederick Sollors"],"umph":[1715023131.9027],"ok":[true],"chunk":[15],"ex":[1],"e.ind":[0],"code":["\ncor(wage1$exper,wage1$wage)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:18:51"],"user":["Frederick Sollors"],"umph":[1715023131.9059],"ok":[true],"chunk":[16],"ex":[1],"e.ind":[0],"code":["\ncor(wage1$exper,wage1$educ)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:18:51"],"user":["Frederick Sollors"],"umph":[1715023131.9283],"ok":[true],"chunk":[17],"ex":[1],"e.ind":[0],"code":["\ngrViz('digraph G {\n\nx [label=\"Ausbildungsjahre x\"]\ny [label=\"Stundenlohn y\"]\nw [label=\"Arbeitserfahrung\"]\n\nx -> y [label=\"+\"];\nx -> w [label=\"-\"];\nw -> y [label=\"+\"];\n}')\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:18:51"],"user":["Frederick Sollors"],"umph":[1715023131.9322],"ok":[true],"chunk":[18],"ex":[1],"e.ind":[0],"code":["\ncoef(lm(wage~educ, data=wage1))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:18:51"],"user":["Frederick Sollors"],"umph":[1715023131.937],"ok":[false],"chunk":[19],"ex":[1],"e.ind":[1],"code":["\n\"kleiner\"\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_h_5."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:19:11"],"user":["Frederick Sollors"],"umph":[1715023151.1584],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:19:11"],"user":["Frederick Sollors"],"umph":[1715023151.1716],"ok":[true],"chunk":[19],"ex":[1],"e.ind":[0],"code":["\n\"groesser\"\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:19:11"],"user":["Frederick Sollors"],"umph":[1715023151.1758],"ok":[true],"chunk":[20],"ex":[1],"e.ind":[0],"code":["coef(lm(wage~educ+exper, data=wage1))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:19:11"],"user":["Frederick Sollors"],"umph":[1715023151.1806],"ok":[false],"chunk":[21],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_h_7."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:20:36"],"user":["Frederick Sollors"],"umph":[1715023236.5209],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:20:36"],"user":["Frederick Sollors"],"umph":[1715023236.542],"ok":[true],"chunk":[20],"ex":[1],"e.ind":[0],"code":["\ncoef(lm(wage~educ+exper, data=wage1))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:20:36"],"user":["Frederick Sollors"],"umph":[1715023236.5469],"ok":[false],"chunk":[21],"ex":[1],"e.ind":[1],"code":["\n0.64\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_h_7."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:20:50"],"user":["Frederick Sollors"],"umph":[1715023250.432],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:20:50"],"user":["Frederick Sollors"],"umph":[1715023250.4484],"ok":[true],"chunk":[21],"ex":[1],"e.ind":[0],"code":["\n0.54\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:20:50"],"user":["Frederick Sollors"],"umph":[1715023250.4666],"ok":[false],"chunk":[22],"ex":[1],"e.ind":[3],"code":["reg1 <- lm(wage ~ educ, data = wage1)\nreg2 <- lm(wage ~ educ + female + nonwhite, data=wage1)\n\n# enter your code here ...\n"],"message":["\nYou have not yet made an assignment to reg3 in chunk 1_i."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:22:54"],"user":["Frederick Sollors"],"umph":[1715023374.2488],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:22:54"],"user":["Frederick Sollors"],"umph":[1715023374.2935],"ok":[true],"chunk":[22],"ex":[1],"e.ind":[0],"code":["\nreg1 <- lm(wage ~ educ, data = wage1)\nreg2 <- lm(wage ~ educ + female + nonwhite, data=wage1)\nreg3 <- lm(wage ~ educ + female + nonwhite + exper, data=wage1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:22:54"],"user":["Frederick Sollors"],"umph":[1715023374.4882],"ok":[true],"chunk":[23],"ex":[1],"e.ind":[0],"code":["stargazer( reg1, reg2, reg3 ,type = \"text\",  digits=2, omit.stat = c(\"f\",\"ser\"))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:22:54"],"user":["Frederick Sollors"],"umph":[1715023374.4923],"ok":[false],"chunk":[25],"ex":[2],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet made an assignment to n_train in chunk 2_a_2."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:25:04"],"user":["Frederick Sollors"],"umph":[1715023504.599],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:25:04"],"user":["Frederick Sollors"],"umph":[1715023504.8163],"ok":[true],"chunk":[23],"ex":[1],"e.ind":[0],"code":["\nstargazer( reg1, reg2, reg3 ,type = \"text\",  digits=2, omit.stat = c(\"f\",\"ser\"))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:25:05"],"user":["Frederick Sollors"],"umph":[1715023505.0295],"ok":[true],"chunk":[24],"ex":[2],"e.ind":[0],"code":["\nhelp(jtrain3)\ndata(jtrain3)\nhead(jtrain3)\nskim(jtrain3)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:25:05"],"user":["Frederick Sollors"],"umph":[1715023505.0363],"ok":[false],"chunk":[25],"ex":[2],"e.ind":[2],"code":["\nn_train <- sum(jtrain3$train, na.rm = TRUE)\n"],"message":["\nYou have not yet entered all correct commands in chunk 2_a_2."]}
+,
+{"type":["hint"],"time":["2024-05-06 21:25:49"],"user":["Frederick Sollors"],"umph":[1715023549.8548],"ok":[true],"chunk":[25],"ex":[2],"e.ind":[2]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:27:29"],"user":["Frederick Sollors"],"umph":[1715023649.2468],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:27:29"],"user":["Frederick Sollors"],"umph":[1715023649.2669],"ok":[false],"chunk":[25],"ex":[2],"e.ind":[2],"code":["\nn_train <- sum(jtrain3$train, na.rm = TRUE)\nprint(n_train)\n"],"message":["\nYou have not yet entered all correct commands in chunk 2_a_2."]}
+,
+{"type":["hint"],"time":["2024-05-06 21:27:39"],"user":["Frederick Sollors"],"umph":[1715023659.6547],"ok":[true],"chunk":[25],"ex":[2],"e.ind":[2]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:29:04"],"user":["Frederick Sollors"],"umph":[1715023744.1481],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:29:04"],"user":["Frederick Sollors"],"umph":[1715023744.1732],"ok":[true],"chunk":[25],"ex":[2],"e.ind":[0],"code":["\nn_train <- sum(jtrain3$train, na.rm = TRUE)\nn_train\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:29:04"],"user":["Frederick Sollors"],"umph":[1715023744.1807],"ok":[false],"chunk":[26],"ex":[2],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 2_a_3."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:31:53"],"user":["Frederick Sollors"],"umph":[1715023913.6258],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:31:53"],"user":["Frederick Sollors"],"umph":[1715023913.644],"ok":[true],"chunk":[26],"ex":[2],"e.ind":[0],"code":["\n2\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:31:53"],"user":["Frederick Sollors"],"umph":[1715023913.6517],"ok":[false],"chunk":[27],"ex":[2],"e.ind":[1],"code":["\n# enter your code here ...\n\n\n# enter your code here ...\n"],"message":["\nYou have not yet made an assignment to reg1 in chunk 2_b."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:33:16"],"user":["Frederick Sollors"],"umph":[1715023996.1719],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:33:16"],"user":["Frederick Sollors"],"umph":[1715023996.212],"ok":[true],"chunk":[27],"ex":[2],"e.ind":[0],"code":["\n# Durchführen der linearen Regression\nreg1 <- lm(unem78 ~ train, data=jtrain3)\n\n# Anzeigen der Zusammenfassung des Regressionsmodells\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:33:16"],"user":["Frederick Sollors"],"umph":[1715023996.2162],"ok":[false],"chunk":[28],"ex":[2],"e.ind":[0],"code":[".PH_._ %>% \n group_by(.PH_._) %>%\n summarize(mean(train), mean(.PH_._))\n\n# enter your code here ...\n"],"message":["evaluation error in \n  ___ %>% group_by(___) %>% summarize(mean(train), mean(___))\n  Error:  object '___' not found\n"]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:36:39"],"user":["Frederick Sollors"],"umph":[1715024199.3713],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:36:39"],"user":["Frederick Sollors"],"umph":[1715024199.3957],"ok":[false],"chunk":[28],"ex":[2],"e.ind":[1],"code":["\nresult <- jtrain3 %>% \n group_by(unem75) %>%\n summarize(mean(train), mean(unem78))\n"],"message":["\nOk, in chunk 2_c your command\n\n    result <- jtrain3 %>% group_by(unem75) %>% summarize(mean(train), mean(unem78))\n\nindeed yields the correct result. But you shall directly use the function '%>%', by just writing \n\n    jtrain3 %>% group_by(unem75) %>% summarize(mean(train), mean(unem78))\n\nPlease change your code."]}
+,
+{"type":["hint"],"time":["2024-05-06 21:36:48"],"user":["Frederick Sollors"],"umph":[1715024208.7487],"ok":[true],"chunk":[28],"ex":[2],"e.ind":[1]}
+,
+{"type":["hint"],"time":["2024-05-06 21:39:51"],"user":["Frederick Sollors"],"umph":[1715024391.5661],"ok":[true],"chunk":[28],"ex":[2],"e.ind":[1]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:40:44"],"user":["Frederick Sollors"],"umph":[1715024444.0439],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:40:44"],"user":["Frederick Sollors"],"umph":[1715024444.09],"ok":[false],"chunk":[28],"ex":[2],"e.ind":[1],"code":["\nresult <- jtrain3 %>% \n group_by(unem75) %>%\n summarize(\n    mean_train = mean(train, na.rm = TRUE),  # Durchschnittliche Teilnahme am Trainingsprogramm\n    mean_unem78 = mean(unem78, na.rm = TRUE) # Durchschnittliche Arbeitslosenquote 1978\n  )\n"],"message":["\nYou have not yet entered all correct commands in chunk 2_c."]}
+,
+{"type":["hint"],"time":["2024-05-06 21:40:50"],"user":["Frederick Sollors"],"umph":[1715024450.7091],"ok":[true],"chunk":[28],"ex":[2],"e.ind":[1]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:42:15"],"user":["Frederick Sollors"],"umph":[1715024535.0323],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:42:15"],"user":["Frederick Sollors"],"umph":[1715024535.1077],"ok":[false],"chunk":[28],"ex":[2],"e.ind":[1],"code":["\njtrain3 %>% \n  group_by(unem75) %>% \n  summarize(mean_train = mean(train, na.rm = TRUE), mean_unem78 = mean(unem78, na.rm = TRUE))\n"],"message":["\nYou have not yet entered all correct commands in chunk 2_c."]}
+,
+{"type":["hint"],"time":["2024-05-06 21:42:23"],"user":["Frederick Sollors"],"umph":[1715024543.2273],"ok":[true],"chunk":[28],"ex":[2],"e.ind":[1]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:44:58"],"user":["Frederick Sollors"],"umph":[1715024698.6786],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:44:58"],"user":["Frederick Sollors"],"umph":[1715024698.7373],"ok":[true],"chunk":[28],"ex":[2],"e.ind":[0],"code":["\njtrain3 %>% \n  group_by(unem75) %>% \n  summarize(mean(train), mean(unem78))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:44:58"],"user":["Frederick Sollors"],"umph":[1715024698.7704],"ok":[true],"chunk":[29],"ex":[2],"e.ind":[0],"code":["library(DiagrammeR)\ngrViz('digraph G {\n\nx [label=\"Weiterbildung in 1977\"]\ny [label=\"Arbeitslos in 1978\"]\nw [label=\"Arbeitslos in 1975\"]\n\nx -> y [label=\"?\"]\nw -> x [label=\"+\"]\nw -> y [label=\"+\"]\n}')"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:44:58"],"user":["Frederick Sollors"],"umph":[1715024698.7748],"ok":[false],"chunk":[30],"ex":[2],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 2_d_2."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:46:11"],"user":["Frederick Sollors"],"umph":[1715024771.8418],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:46:11"],"user":["Frederick Sollors"],"umph":[1715024771.8698],"ok":[true],"chunk":[29],"ex":[2],"e.ind":[0],"code":["\nlibrary(DiagrammeR)\ngrViz('digraph G {\n\nx [label=\"Weiterbildung in 1977\"]\ny [label=\"Arbeitslos in 1978\"]\nw [label=\"Arbeitslos in 1975\"]\n\nx -> y [label=\"?\"]\nw -> x [label=\"+\"]\nw -> y [label=\"+\"]\n}')\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:46:11"],"user":["Frederick Sollors"],"umph":[1715024771.8755],"ok":[false],"chunk":[30],"ex":[2],"e.ind":[1],"code":["\n\"groesser\"\n"],"message":["\nYou have not yet entered all correct commands in chunk 2_d_2."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:46:26"],"user":["Frederick Sollors"],"umph":[1715024786.4424],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:46:26"],"user":["Frederick Sollors"],"umph":[1715024786.459],"ok":[true],"chunk":[30],"ex":[2],"e.ind":[0],"code":["\n\"kleiner\"\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:46:26"],"user":["Frederick Sollors"],"umph":[1715024786.4647],"ok":[false],"chunk":[31],"ex":[2],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet made an assignment to reg2 in chunk 2_d_3."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:47:48"],"user":["Frederick Sollors"],"umph":[1715024868.8112],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:47:48"],"user":["Frederick Sollors"],"umph":[1715024868.8323],"ok":[false],"chunk":[31],"ex":[2],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet made an assignment to reg2 in chunk 2_d_3."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:52:08"],"user":["Frederick Sollors"],"umph":[1715025128.0746],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:52:08"],"user":["Frederick Sollors"],"umph":[1715025128.3123],"ok":[true],"chunk":[31],"ex":[2],"e.ind":[0],"code":["\n# Lineare Regression zur Untersuchung des Einflusses von Weiterbildung und Arbeitslosigkeit 1975 auf Arbeitslosigkeit 1978\nreg2 <- lm(unem78 ~ train + unem75, data = jtrain3)\n\n# Ergebnisse von reg1 und reg2 nebeneinander anzeigen\nstargazer(reg1, reg2, type = \"text\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:52:08"],"user":["Frederick Sollors"],"umph":[1715025128.3169],"ok":[false],"chunk":[32],"ex":[2],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet made an assignment to jtrain3_la in chunk 2_e."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:53:40"],"user":["Frederick Sollors"],"umph":[1715025220.0735],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:53:40"],"user":["Frederick Sollors"],"umph":[1715025220.1135],"ok":[true],"chunk":[32],"ex":[2],"e.ind":[0],"code":["\n# Datensatz für Personen, die 1975 arbeitslos waren\njtrain3_la <- jtrain3[jtrain3$unem75 == 1, ]\n\n# Datensatz für Personen, die 1975 nicht arbeitslos waren\njtrain3_ka <- jtrain3[jtrain3$unem75 == 0, ]\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:53:40"],"user":["Frederick Sollors"],"umph":[1715025220.1202],"ok":[false],"chunk":[33],"ex":[2],"e.ind":[1],"code":["\n# enter your code here ...\n\nstargazer(reg1, reg2, reg_la, reg_ka,type=\"text\",keep.stat=c(\"n\"), column.labels = c(\"alle\",\"alle\", \"Lang Alo\",\"Kurz Alo\") )"],"message":["\nYou have not yet made an assignment to reg_la in chunk 2_e_2."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:56:01"],"user":["Frederick Sollors"],"umph":[1715025361.2086],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:56:01"],"user":["Frederick Sollors"],"umph":[1715025361.4192],"ok":[true],"chunk":[33],"ex":[2],"e.ind":[0],"code":["\n# Regression für Personen, die 1975 arbeitslos waren\nreg_la <- lm(unem78 ~ train, data = jtrain3_la)\n\n# Regression für Personen, die 1975 nicht arbeitslos waren\nreg_ka <- lm(unem78 ~ train, data = jtrain3_ka)\n\nstargazer(reg1, reg2, reg_la, reg_ka,type=\"text\",keep.stat=c(\"n\"), column.labels = c(\"alle\",\"alle\", \"Lang Alo\",\"Kurz Alo\") )\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:56:01"],"user":["Frederick Sollors"],"umph":[1715025361.5804],"ok":[true],"chunk":[34],"ex":[2],"e.ind":[0],"code":["\nreg3 <- lm(unem78 ~ train + unem75 + train:unem75 , data=jtrain3)\nstargazer(reg_la, reg_ka, reg3, type=\"text\",keep.stat=c(\"n\"), column.labels = c(\"Lang Alo\",\"Kurz Alo\", \"alle\") )\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:56:01"],"user":["Frederick Sollors"],"umph":[1715025361.5863],"ok":[false],"chunk":[35],"ex":[2],"e.ind":[1],"code":["\n\"ja\"\n"],"message":["\nYou have not yet entered all correct commands in chunk 2_f_2."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:56:49"],"user":["Frederick Sollors"],"umph":[1715025409.6517],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:56:49"],"user":["Frederick Sollors"],"umph":[1715025409.6608],"ok":[false],"chunk":[35],"ex":[2],"e.ind":[1],"code":["\n\"ja\"\n"],"message":["\nYou have not yet entered all correct commands in chunk 2_f_2."]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:57:03"],"user":["Frederick Sollors"],"umph":[1715025423.0594],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:57:03"],"user":["Frederick Sollors"],"umph":[1715025423.0714],"ok":[true],"chunk":[35],"ex":[2],"e.ind":[0],"code":["\n\"nein\"\n"],"message":[""]}
+,
+{"type":["check_ps"],"time":["2024-05-06 21:57:35"],"user":["Frederick Sollors"],"umph":[1715025455.7436],"ok":[true]}
+,
+{"type":["grade_ps"],"time":["2024-05-06 21:59:15"],"user":["Frederick Sollors"],"umph":[1715025555.7537],"ok":[true]}
+,
+{"type":["init_ps"],"time":["2024-05-06 21:59:15"],"user":["Frederick Sollors"],"umph":[1715025555.7709],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.0728],"ok":[true],"chunk":[1],"ex":[1],"e.ind":[0],"code":["\nlibrary(wooldridge)\ndata(wage1)\nhead(wage1)\nskim(wage1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.0806],"ok":[true],"chunk":[2],"ex":[1],"e.ind":[0],"code":["\nlibrary(stats)\n\n# Durchführung der linearen Regression\nreg1 <- lm(wage ~ educ, data = wage1)\n\n# Anzeigen der Zusammenfassung des Regressionsmodells\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.0835],"ok":[true],"chunk":[3],"ex":[1],"e.ind":[0],"code":["\n\"nein\"\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.101],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0],"code":["\nwage1 %>%\n mutate(gender = ifelse(female == 1,\"female\", \"male\")) %>%\n group_by(gender) %>%\n summarize(mean(educ))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.1192],"ok":[true],"chunk":[5],"ex":[1],"e.ind":[0],"code":["\ngrViz('digraph G {\n\nx [label=\"Ausbildungsjahre x\"]\ny [label=\"Stundenlohn y\"]\nw [label=\"maennlich\"]\n\nx -> y [label=\"+\"];\nw -> x [label=\"+\"];\nw -> y [label=\"+\"];\n}')\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.1228],"ok":[true],"chunk":[6],"ex":[1],"e.ind":[0],"code":["\n1\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.1295],"ok":[true],"chunk":[7],"ex":[1],"e.ind":[0],"code":["\nreg2 <- lm(wage ~ educ + female, data=wage1)\nsummary(reg2)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.1406],"ok":[true],"chunk":[8],"ex":[1],"e.ind":[0],"code":["\ngrViz('digraph G {\nx -> y [label=\"+\"];\nw -> y [label=\"+\"];\n}')\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.1437],"ok":[true],"chunk":[9],"ex":[1],"e.ind":[0],"code":["\n\"unverzerrt\"\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.256],"ok":[true],"chunk":[10],"ex":[1],"e.ind":[0],"code":["\n########################################\n# Beispiel 1: w hat nur Einfluss auf y\n########################################\nset.seed(123)\nn <- 10000\nbeta1 <- 2 # wahrer kausaler effekt\nw <- rnorm(n,0,1)\nx <- rnorm(n,0,1)\ny <- beta1*x + w + rnorm(n,0,1)\n\n# Regression mit w als Kontrollvariable\nreg1 <- lm(y~x+w)\n# Regression ohne w als Kontrollvariable\nreg2 <- lm(y~x)\n# Zeige Ergbenisse nebeneinander\nlibrary(stargazer)\nstargazer(reg1, reg2, type=\"text\", digits=3, keep.stat=c(\"n\"))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.3682],"ok":[true],"chunk":[11],"ex":[1],"e.ind":[0],"code":["\n########################################\n# Beispiel 2: w hat Einfluss auf y und x\n########################################\nset.seed(123)\nn <- 10000\nbeta1 <- 2 # wahrer kausaler effekt\nw <- rnorm(n,0,1)\nx <- rnorm(n,0,1) + w\ny <- beta1*x + w + rnorm(n,0,1)\n\n# Regression mit w als Kontrollvariable\nreg1 <- lm(y~x+w)\n# Regression ohne w als Kontrollvariable\nreg2 <- lm(y~x)\n# Zeige Ergbenisse nebeneinander\nstargazer(reg1, reg2, type=\"text\", digits=3, keep.stat=c(\"n\"))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.3715],"ok":[true],"chunk":[12],"ex":[1],"e.ind":[0],"code":["\n\"nein\"\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.3769],"ok":[true],"chunk":[13],"ex":[1],"e.ind":[0],"code":["\nconfint(lm(y~x))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.3838],"ok":[true],"chunk":[14],"ex":[1],"e.ind":[0],"code":["\nconfint(reg2, level = 0.99)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.3855],"ok":[true],"chunk":[15],"ex":[1],"e.ind":[0],"code":["\ncor(wage1$exper,wage1$wage)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.3871],"ok":[true],"chunk":[16],"ex":[1],"e.ind":[0],"code":["\ncor(wage1$exper,wage1$educ)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.3975],"ok":[true],"chunk":[17],"ex":[1],"e.ind":[0],"code":["\ngrViz('digraph G {\n\nx [label=\"Ausbildungsjahre x\"]\ny [label=\"Stundenlohn y\"]\nw [label=\"Arbeitserfahrung\"]\n\nx -> y [label=\"+\"];\nx -> w [label=\"-\"];\nw -> y [label=\"+\"];\n}')\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.4001],"ok":[true],"chunk":[18],"ex":[1],"e.ind":[0],"code":["\ncoef(lm(wage~educ, data=wage1))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.403],"ok":[true],"chunk":[19],"ex":[1],"e.ind":[0],"code":["\n\"groesser\"\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.4049],"ok":[true],"chunk":[20],"ex":[1],"e.ind":[0],"code":["\ncoef(lm(wage~educ+exper, data=wage1))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.4082],"ok":[true],"chunk":[21],"ex":[1],"e.ind":[0],"code":["\n0.54\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.4195],"ok":[true],"chunk":[22],"ex":[1],"e.ind":[0],"code":["\nreg1 <- lm(wage ~ educ, data = wage1)\nreg2 <- lm(wage ~ educ + female + nonwhite, data=wage1)\nreg3 <- lm(wage ~ educ + female + nonwhite + exper, data=wage1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.5813],"ok":[true],"chunk":[23],"ex":[1],"e.ind":[0],"code":["\nstargazer( reg1, reg2, reg3 ,type = \"text\",  digits=2, omit.stat = c(\"f\",\"ser\"))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.7743],"ok":[true],"chunk":[24],"ex":[2],"e.ind":[0],"code":["\nhelp(jtrain3)\ndata(jtrain3)\nhead(jtrain3)\nskim(jtrain3)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.7791],"ok":[true],"chunk":[25],"ex":[2],"e.ind":[0],"code":["\nn_train <- sum(jtrain3$train, na.rm = TRUE)\nn_train\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.7834],"ok":[true],"chunk":[26],"ex":[2],"e.ind":[0],"code":["\n2\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.7928],"ok":[true],"chunk":[27],"ex":[2],"e.ind":[0],"code":["\n# Durchführen der linearen Regression\nreg1 <- lm(unem78 ~ train, data=jtrain3)\n\n# Anzeigen der Zusammenfassung des Regressionsmodells\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.8124],"ok":[true],"chunk":[28],"ex":[2],"e.ind":[0],"code":["\njtrain3 %>% \n  group_by(unem75) %>% \n  summarize(mean(train), mean(unem78))\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.8238],"ok":[true],"chunk":[29],"ex":[2],"e.ind":[0],"code":["\nlibrary(DiagrammeR)\ngrViz('digraph G {\n\nx [label=\"Weiterbildung in 1977\"]\ny [label=\"Arbeitslos in 1978\"]\nw [label=\"Arbeitslos in 1975\"]\n\nx -> y [label=\"?\"]\nw -> x [label=\"+\"]\nw -> y [label=\"+\"]\n}')\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:16"],"user":["Frederick Sollors"],"umph":[1715025556.8272],"ok":[true],"chunk":[30],"ex":[2],"e.ind":[0],"code":["\n\"kleiner\"\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:17"],"user":["Frederick Sollors"],"umph":[1715025557.0136],"ok":[true],"chunk":[31],"ex":[2],"e.ind":[0],"code":["\n# Lineare Regression zur Untersuchung des Einflusses von Weiterbildung und Arbeitslosigkeit 1975 auf Arbeitslosigkeit 1978\nreg2 <- lm(unem78 ~ train + unem75, data = jtrain3)\n\n# Ergebnisse von reg1 und reg2 nebeneinander anzeigen\nstargazer(reg1, reg2, type = \"text\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:17"],"user":["Frederick Sollors"],"umph":[1715025557.0214],"ok":[true],"chunk":[32],"ex":[2],"e.ind":[0],"code":["\n# Datensatz für Personen, die 1975 arbeitslos waren\njtrain3_la <- jtrain3[jtrain3$unem75 == 1, ]\n\n# Datensatz für Personen, die 1975 nicht arbeitslos waren\njtrain3_ka <- jtrain3[jtrain3$unem75 == 0, ]\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:17"],"user":["Frederick Sollors"],"umph":[1715025557.1801],"ok":[true],"chunk":[33],"ex":[2],"e.ind":[0],"code":["\n# Regression für Personen, die 1975 arbeitslos waren\nreg_la <- lm(unem78 ~ train, data = jtrain3_la)\n\n# Regression für Personen, die 1975 nicht arbeitslos waren\nreg_ka <- lm(unem78 ~ train, data = jtrain3_ka)\n\nstargazer(reg1, reg2, reg_la, reg_ka,type=\"text\",keep.stat=c(\"n\"), column.labels = c(\"alle\",\"alle\", \"Lang Alo\",\"Kurz Alo\") )\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:17"],"user":["Frederick Sollors"],"umph":[1715025557.3252],"ok":[true],"chunk":[34],"ex":[2],"e.ind":[0],"code":["\nreg3 <- lm(unem78 ~ train + unem75 + train:unem75 , data=jtrain3)\nstargazer(reg_la, reg_ka, reg3, type=\"text\",keep.stat=c(\"n\"), column.labels = c(\"Lang Alo\",\"Kurz Alo\", \"alle\") )\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2024-05-06 21:59:17"],"user":["Frederick Sollors"],"umph":[1715025557.3284],"ok":[true],"chunk":[35],"ex":[2],"e.ind":[0],"code":["\n\"nein\"\n"],"message":[""]}
+,

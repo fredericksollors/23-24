@@ -2,6 +2,7 @@
 ```{r 'check_ps', include=FALSE}
 
 user.name = 'Frederick Sollors'
+
 ```
 
 # RTutor Uebungsblatt 5 - Projektkurs
@@ -40,10 +41,12 @@ Bitte installieren Sie die Pakete `stargazer`, `wooldridge`, `DiagrammeR` und `s
 
 a) Im wooldridge-Pakte finden Sie den Datensatz `wage1`, welcher US Daten zu 526 Arbeitnehmern, deren Loehne, Ausbildung und Herkunft aus dem Jahr 1976 enhaelt. Lassen Sie folgenden Code laufen um die Daten in einer Variablen zu speichern und einen Ueberblick zu erhalten:
 ```{r "1_a"}
+
 library(wooldridge)
 data(wage1)
 head(wage1)
 skim(wage1)
+
 ```
 
 Fuer eine Erklaerung der Variablen geben Sie einfach `help(wage1)` in der R Konsole ein.
@@ -53,10 +56,13 @@ b) Wir moechten nun durch eine lineare Regression den Zusammenhang zwischen Stun
 
 ```{r "1_b",optional=TRUE}
 
-# enter your code here ...
+library(stats)
 
+# Durchführung der linearen Regression
+reg1 <- lm(wage ~ educ, data = wage1)
 
-# enter your code here ...
+# Anzeigen der Zusammenfassung des Regressionsmodells
+summary(reg1)
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -68,7 +74,7 @@ c) Nun ein kleines Quiz. Ist folgende Interpretation des Regressionsergebnisses 
 Schreiben Sie "ja" oder "nein"
 ```{r "1_c",optional=TRUE}
 
-# enter your code here ...
+"nein"
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -88,12 +94,11 @@ e) Ein Hauptgrund fuer Verzerrungen sind das wichtige Einflussgroessen, die sowo
 Vervollstaendigen Sie den Code and der Stelle ___, um die durchschnittlichen Ausbildungsjahre von Maennern und Frauen zu vergleichen.
 
 ```{r "1_e",optional=TRUE}
-wage1 %>%
- mutate(gender = ifelse(female==1,"___","___")) %>%
- group_by(gender) %>%
- summarize(mean(___))
 
-# enter your code here ...
+wage1 %>%
+ mutate(gender = ifelse(female == 1,"female", "male")) %>%
+ group_by(gender) %>%
+ summarize(mean(educ))
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -102,6 +107,7 @@ Wir sehen, dass maennliche Arbeitnehmer 1976 im Schnitt eine etwas laengere Ausb
 
 Folgendes Pfeildiagramm illustriert die vermuteten kausalen Effekte (einfach Code laufen lassen):
 ```{r "1_e_2"}
+
 grViz('digraph G {
 
 x [label="Ausbildungsjahre x"]
@@ -112,6 +118,7 @@ x -> y [label="+"];
 w -> x [label="+"];
 w -> y [label="+"];
 }')
+
 ```
 
 Jeder Pfeil im Diagramm soll einen kausalen Effekt illustrieren. Der Pfeil von Ausbildungsjahren zu Stundenlohn ist der Effekt, an dem wir interessiert sind. 
@@ -126,7 +133,7 @@ Wenn wir y auf nur eine Variable x regressieren, misst der geschaetzte Koeffizie
 Tippen Sie 1 oder 2 ein:
 ```{r "1_e_3",optional=TRUE}
 
-# enter your code here ...
+1
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -140,8 +147,10 @@ D.h. der wahre kausale Effekt waere kleiner als 0.54 USD hoeherer Stundenlohn pr
 f) Eine Moeglichkeit fuer eine fehlende Einflussgroesse zu _kontrollieren_, ist sie mit in die Regression hineinzunehmen. Lassen Sie hierfuer folgenden Code laufen:
 
 ```{r "1_f",optional=TRUE}
+
 reg2 <- lm(wage ~ educ + female, data=wage1)
 summary(reg2)
+
 ```
 
 Der Koeffizizient `-2.27` vor der Variablen `female` bedeutet hier, dass bei gleich langer Ausbildung (aber nicht unbedingt im gleichen Fachgebiet) Frauen im Schnitt einen um 2.27 USD niedrigeren Stundenlohn hatten. (Warum misst aber -2.27 vermutlich nicht den kausalen Effekt des Geschlechts auf den Stundenlohn?)
@@ -153,10 +162,12 @@ Vermutlich ueber- oder unterschaetzt aber auch der Schaetzer `0.506` noch immer 
 g) Betrachten Sie folgendes Pfeildiagramm fuer ein abstraktes Beispiel:
 
 ```{r "1_g"}
+
 grViz('digraph G {
 x -> y [label="+"];
 w -> y [label="+"];
 }')
+
 ```
 Wir haben eine Variable `w` die nur `y` aber nicht `x` beeinflusst. Es soll keine weiteren relevanten kausalen Effekte geben.
 
@@ -164,7 +175,7 @@ Nehmen Sie an, wir regressieren y auf x ohne fuer w zu kontrollieren, d.h `lm(y~
 
 ```{r "1_g_2",optional=TRUE}
 
-# enter your code here ...
+"unverzerrt"
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -175,6 +186,7 @@ Es waere in diesem Beispiel aber auch nicht schlimm, wenn wir `w` als Kontrollva
 
 Dies kann man durch eine kleine Simulationsstudie illustrieren, wo wir den wahren kausalen Effekt kennen. Lassen Sie zunaechst folgenden Code laufen und versuchen Sie ihn nachzuvollziehen.
 ```{r "1_g_3"}
+
 ########################################
 # Beispiel 1: w hat nur Einfluss auf y
 ########################################
@@ -192,6 +204,7 @@ reg2 <- lm(y~x)
 # Zeige Ergbenisse nebeneinander
 library(stargazer)
 stargazer(reg1, reg2, type="text", digits=3, keep.stat=c("n"))
+
 ```
 Hier beeinflusst w nur y aber nicht x. Beide Regressionen liefern fast den gleichen Schaetzer des Einflusses von x auf y der nahe am wahren kausalen Effekt von `beta1 = 2` dran liegt.
 
@@ -199,6 +212,7 @@ Diese Beobachtung liefert auch den Grund warum man bei Daten aus randomisierten 
 
 Hier nun stattdessen eine Simulation, in der die Variable w sowohl x als auch y beeinflusst. (Zeichnen Sie zur Uebung ein entsprechendes Pfeildiagramm auf Papier.)
 ```{r "1_g_4"}
+
 ########################################
 # Beispiel 2: w hat Einfluss auf y und x
 ########################################
@@ -215,6 +229,7 @@ reg1 <- lm(y~x+w)
 reg2 <- lm(y~x)
 # Zeige Ergbenisse nebeneinander
 stargazer(reg1, reg2, type="text", digits=3, keep.stat=c("n"))
+
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
 
@@ -223,19 +238,21 @@ Wenn wir w als Kontrollvariable einbauen, ist der Koeffizient von x weiterhin se
 Frage: Liegt in der zweiten Regression der wahre kausale Effekt `beta1=2` im 95% Konfidenzintervall um unseren Schaetzer des Koeffizienten von x? Schreiben Sie "ja" oder "nein"
 ```{r "1_g_5"}
 
-# enter your code here ...
+"nein"
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
 
 Das 95% Konfideninzintervall ist ungefaehrt der Schaetzer (hier 2.5) plus-minus zweimal der Standardfehler (hier 0.00869). Wir sehen, dass der wahre kausale Effekt `beta1=2.0` da weit von entfernt ist. Das genaue 95% Konfidenzinterval zeigt folgender Code: 
 ```{r "1_g_6"}
+
 confint(lm(y~x))
+
 ```
 Berechnen Sie auch das 99% Konfidenzintervall:
 ```{r "1_g_7"}
 
-# enter your code here ...
+confint(reg2, level = 0.99)
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -253,17 +270,22 @@ Ein anderer wichtiger Punkt ist, dass man keine Kontrollvariablen einbauen sollt
 Auch dies moechten wir anhand eines Beispiels illustrieren. Personen mit mehr Ausbildungsjahren haben bei gleichem Alter tendenziell weniger Jahre Berufserfahrung (`exper`) als Personen mit kuerzerer Bildung. Berufserfahrung hat aber auch einen positiven Zusammenhang mit den Stundenlohn:
 
 ```{r "1_h"}
+
 cor(wage1$exper,wage1$wage)
+
 ```
 
 Den negativen Zusammenhang zwischen Ausbildungsdauer und Berufserfahrung sehen Sie hier:
 
 ```{r "1_h_2"}
+
 cor(wage1$exper,wage1$educ)
+
 ```
 
 Wenn wir andere Einflussgroessen, wie z. B. Geschlecht, ignorieren, scheint folgendes Pfeildiagramm also plausibel fuer die kausalen Wirkunsketten:
 ```{r "1_h_3"}
+
 grViz('digraph G {
 
 x [label="Ausbildungsjahre x"]
@@ -281,21 +303,25 @@ Mehr Ausbildungjahre haben einen direkten positiven Effekt auf den Stundenlohn. 
 
 Zur Erinnerung, wenn wir Stundenlohn nur auf Ausbildungsjahre regressieren, finden wir einen Koeffizienten von 0.54: 
 ```{r "1_h_4"}
+
 coef(lm(wage~educ, data=wage1))
+
 ```
 
 In welche Richtung veraendert sich vermutlich der geschaetzte Koeffizient von `educ` wenn wir Arbeitserfahrung `exper` mit in die Regression hineinnehmen? Schreiben Sie "groesser" oder "kleiner":
 
 ```{r "1_h_5",optional=TRUE}
 
-# enter your code here ...
+"groesser"
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
 
 Betrachten wir das Ergebnis:
 ```{r "1_h_6"}
+
 coef(lm(wage~educ+exper, data=wage1))
+
 ```
 
 Tatsaechlich finden wir jetzt einen groesseren Effekt von Ausbildungsjahren auf Stundenlohn (0.64 statt 0.54). Zur Erklaerung schauen Sie nochmal auf das Pfeildiagramm.
@@ -313,7 +339,7 @@ Aber was ist jetzt der "wahre" kausale Effekt von Ausbildungsjahren auf Stundenl
 Geben Sie 0.54 oder 0.64 an.
 ```{r "1_h_7"}
 
-# enter your code here ...
+0.54
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -327,17 +353,19 @@ i) Manchmal ist man an unterschiedlichen Effekten interessiert oder es ist per s
 Fuegen Sie zu dem Code unten noch eine dritte Regression hinzu, in der Sie sowohl (in dieser Reihenfolge) fuer `female` und `nonwhite`,  als auch `exper` kontrollieren und speichern Sie diese in `reg3`.
 
 ```{r "1_i"}
+
 reg1 <- lm(wage ~ educ, data = wage1)
 reg2 <- lm(wage ~ educ + female + nonwhite, data=wage1)
-
-# enter your code here ...
+reg3 <- lm(wage ~ educ + female + nonwhite + exper, data=wage1)
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
 
 Der folgende Code nutzt `stargazer` um die 3 Regressionen im typischen Tabellenformat nebeneinander darzustellen:
 ```{r "1_i_2"}
+
 stargazer( reg1, reg2, reg3 ,type = "text",  digits=2, omit.stat = c("f","ser"))
+
 ```
 
 Hier wird allerdings vermutlich keine der 3 Regressionen den wirklichen durchschnittlichen Einfluss von einem zusaetzlichen Ausbildungsjahr auf den Stundenlohn messen. Das liegt daran, dass wir vermutlich noch viele weitere unbeobachtete Einflussgroessen, wie z. B. Intelligenz, haben die sowohl Ausbildungsjahre, als auch Stundenlohn systematisch beeinflussen.
@@ -352,10 +380,12 @@ a) Im folgenden betrachten wir ein neues Beispiel. Wir wollen nun den Einfluss e
 Sie erhalten durch den naechsten Chunk Informationen zum Datensatz:
 
 ```{r "2_a",optional=TRUE}
+
 help(jtrain3)
 data(jtrain3)
 head(jtrain3)
 skim(jtrain3)
+
 ```
 
 Wie die Variable `female` im vorherigen Beispiel sind auch hier wieder einige Variablen, die nur mit 0 und 1 belegt sind. Diese Variablen sind sogenannte Indikatorvariablen, welche auch oft Dummyvariablen genannt werden. Eine 1 in der entsprechenden Variable zeigt z.B. an, dass eine Person verheiratet ist (`married`), oder an der Weiterbildungsmassnahme im Jahr 1977 teilgenommen hat (`train`). Wir koennen Dummyvariablen ganz normal fuer eine OLS-Regression verwenden. Nur die Interpretation veraendert sich ein wenig, wenn die abhaengige Variable eine Dummyvariable ist, aber dazu gleich mehr...
@@ -364,7 +394,8 @@ Als kleine Voruebung, speichern Sie in der Variablen `n_train` die Zahl der Arbe
 
 ```{r "2_a_2"}
 
-# enter your code here ...
+n_train <- sum(jtrain3$train, na.rm = TRUE)
+n_train
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -379,7 +410,7 @@ Geben Sie hier die Ziffer Ihrer Antwort ein und fuehren Sie die Codezeile aus:
 
 ```{r "2_a_3"}
 
-# enter your code here ...
+2
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -391,10 +422,11 @@ b) Fuehren Sie eine lineare Regression (mittels OLS) mit x=`train` und y=`unem78
 
 ```{r "2_b"}
 
-# enter your code here ...
+# Durchführen der linearen Regression
+reg1 <- lm(unem78 ~ train, data=jtrain3)
 
-
-# enter your code here ...
+# Anzeigen der Zusammenfassung des Regressionsmodells
+summary(reg1)
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -405,11 +437,10 @@ Bedeutet dies, dass mehr Weiterbildung zu mehr Arbeitslosigkeit fuehrt?
 
 c) Ergaenzen Sie folgenden Code um die durchschnittliche Teilnahme an Weiterbildungsprogrammen 1977 und die Arbeitslosenquote 1978 zwischen den Personen zu vergleichen, die 1975 arbeitslos/nicht arbeitslos waren.
 ```{r "2_c"}
-___ %>% 
- group_by(___) %>%
- summarize(mean(train), mean(___))
 
-# enter your code here ...
+jtrain3 %>% 
+  group_by(unem75) %>% 
+  summarize(mean(train), mean(unem78))
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -425,6 +456,7 @@ d) Dies suggeriert, dass die bislang fehlende Einflussgroesse Langzeitarbeitslos
 Betrachten Sie hierzu folgendes Pfeildiagramm (einfach Code laufen lassen):
 
 ```{r "2_d"}
+
 library(DiagrammeR)
 grViz('digraph G {
 
@@ -436,6 +468,7 @@ x -> y [label="?"]
 w -> x [label="+"]
 w -> y [label="+"]
 }')
+
 ```
 
 Wir wollen gleich `unem75` als Kontrollvariable in die Regression hineinnehmen. In welche Richtung wird sich der Koeffizient der Weiterbildungsvariable `train` dann vermutlich veraendert?
@@ -444,7 +477,7 @@ Schreiben Sie "kleiner" oder "groesser".
 
 ```{r "2_d_2"}
 
-# enter your code here ...
+"kleiner"
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -453,7 +486,11 @@ Regressieren Sie nun `unem78` auf `train` und `unem75`. Speichern Sie das Ergebn
 
 ```{r "2_d_3"}
 
-# enter your code here ...
+# Lineare Regression zur Untersuchung des Einflusses von Weiterbildung und Arbeitslosigkeit 1975 auf Arbeitslosigkeit 1978
+reg2 <- lm(unem78 ~ train + unem75, data = jtrain3)
+
+# Ergebnisse von reg1 und reg2 nebeneinander anzeigen
+stargazer(reg1, reg2, type = "text")
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -467,7 +504,11 @@ Erstellen Sie zwei Datensaetze aus `jtrain3`:
 
 ```{r "2_e"}
 
-# enter your code here ...
+# Datensatz für Personen, die 1975 arbeitslos waren
+jtrain3_la <- jtrain3[jtrain3$unem75 == 1, ]
+
+# Datensatz für Personen, die 1975 nicht arbeitslos waren
+jtrain3_ka <- jtrain3[jtrain3$unem75 == 0, ]
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -476,9 +517,14 @@ Lassen Sie nun die einfache Regression von `unem78` auf `train` (ohne `unem75`) 
 
 ```{r "2_e_2"}
 
-# enter your code here ...
+# Regression für Personen, die 1975 arbeitslos waren
+reg_la <- lm(unem78 ~ train, data = jtrain3_la)
+
+# Regression für Personen, die 1975 nicht arbeitslos waren
+reg_ka <- lm(unem78 ~ train, data = jtrain3_ka)
 
 stargazer(reg1, reg2, reg_la, reg_ka,type="text",keep.stat=c("n"), column.labels = c("alle","alle", "Lang Alo","Kurz Alo") )
+
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
 
@@ -500,8 +546,10 @@ wobei `beta3` den Koeffizienten fuer den Interaktionseffekt zwischen train und u
 Lassen Sie einfach folgenden Code laufen:
 
 ```{r "2_f"}
+
 reg3 <- lm(unem78 ~ train + unem75 + train:unem75 , data=jtrain3)
 stargazer(reg_la, reg_ka, reg3, type="text",keep.stat=c("n"), column.labels = c("Lang Alo","Kurz Alo", "alle") )
+
 ```
 Fuer die Interpretation nehmen wir mal einfachheitshalber an, es gaebe keine weiteren fehlenden Einflussgroessen. 
 
@@ -529,7 +577,7 @@ Meinen Sie dieses Design loest die meisten relevanten Selektionsproblem und erla
 
 ```{r "2_f_2"}
 
-# enter your code here ...
+"nein"
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
