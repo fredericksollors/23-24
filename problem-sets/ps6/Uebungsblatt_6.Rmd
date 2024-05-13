@@ -1,7 +1,7 @@
 
 ```{r 'check_ps', include=FALSE}
 
-user.name = 'ENTER A USER NAME HERE'
+user.name = 'Frederick Sollors'
 ```
 
 # RTutor Uebungsblatt 6 - Projektkurs
