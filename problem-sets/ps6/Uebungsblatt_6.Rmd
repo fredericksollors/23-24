@@ -54,7 +54,7 @@ a) Wie sollte ein Experiment ausgestaltet sein, um valide Aussagen über den Eff
 Schreiben Sie die Nummer des Experiments:
 ```{r "1_a"}
 
-# enter your code here ...
+2
 
 ```
 
@@ -69,7 +69,7 @@ b) Daher machen wir weitere zwei Vorschläge für eine Experiment. Sind diese Ex
 Schreiben Sie die Nummer des Experiments oder "nein":
 ```{r "1_b"}
 
-# enter your code here ...
+"nein"
 
 ```
 
@@ -88,10 +88,11 @@ c) Sie erhalten nun die Daten eines Experiments wie in Experiment 2 beschrieben.
 Laden Sie nun mit folgendem Code den Datensatz und schauen sich diesen mit skimr an:
 
 ```{r "1_c"}
+
 thp <- read_csv("./data/THP_clean.csv") %>%
   select(newid, uc, depressed_1y, treat, age_baseline, age_baseline_sq, kids_no, famstruct_baseline, grandmother_baseline, edu_mo, edu_fa, employed_mo_baseline, incomeindex, depindex_0, mspss_tot)
 
-# enter your code here ...
+skim(thp)
 
 ```
 
@@ -115,18 +116,17 @@ Der Datensatz enthält zahlreiche Informationen zur Mutter und deren Familie. Da
 d) Bilden wir uns einen ersten Eindruck zur Intervention indem wir uns die Verteilung zu den Depressionen nach einem Jahr für Treatment und Kontrollgruppe näher anschauen:
 
 ```{r "1_d"}
+
 thp_plots <- thp %>%
   mutate(treat_factor = as.factor(ifelse(treat == 1 , "Treatment", "Kontrolle")),
          depressed = as.factor(ifelse(depressed_1y == 0, "keine Depressionen", "Depressionen"))) %>%
   filter( !is.na(depressed)) 
-#plot_prop_depression <- ggplot(___, aes(x = ___, fill = ___)) +
-#  geom_bar(position = "fill") +
-#  labs(x = NULL, y = "Anteil an Depressionen", fill = NULL) +
-#  scale_fill_manual(values = c("darkblue", "darkred"))
+plot_prop_depression <- ggplot(thp_plots, aes(x = depressed, fill = treat_factor)) +
+  geom_bar(position = "fill") +
+  labs(x = NULL, y = "Anteil an Depressionen", fill = NULL) +
+  scale_fill_manual(values = c("darkblue", "darkred"))
 
-#plot_prop_depression
-
-# enter your code here ...
+plot_prop_depression
 
 ```
 
@@ -139,7 +139,7 @@ e) Was wäre nun, wenn die Mütter auch in der Kontrollgruppe über einen andere
 Schreiben sie "ja" oder "nein"
 ```{r "1_e",optional=TRUE}
 
-# enter your code here ...
+"ja"
 
 ```
 
@@ -149,7 +149,7 @@ f) Wenn wir eine Regression durchführen, bei der das in e) beschriebene Problem
 Schreiben sie "überschätzen" oder "unterschätzen"
 ```{r "1_f",optional=TRUE}
 
-# enter your code here ...
+"unterschätzen"
 
 ```
 
@@ -158,6 +158,7 @@ Genau! Dies wäre für unser Experiment tatsächlich _eines_ der größten Probl
 Im ersten Schritt möchten wir uns anschauen, wie gut die Randomisierung im Experiment geklappt hat. Dafür bedienen wir uns der zahlreich erfassten Pre-Treatment Variablen und untersuchen, in wie weit die Familiencharakteristika zwischen Treatment und Kontrollgruppe ausgeglichen sind. Falls die Unterschiede zwischen Treatment und Kontrollgruppe bei den erhobenen Variablen nicht signifikant sind, so ist dies ein gutes Zeichen dafür, dass die Randomisierung erfolgreich war.
 
 ```{r "1_f_2"}
+
 thp %>% 
   pivot_longer(cols = -treat, names_to = "variable", values_to = "value") %>%
   group_nest(variable) %>%
@@ -167,7 +168,8 @@ thp %>%
           Mean_Kontrolle = round(estimate1, 2),
     Differenz = round(estimate, 4),
           Signifikanz = round(p.value,4)) %>%
-  select(variable, Mean_Treatment, Mean_Kontrolle, Differenz, Signifikanz)
+ select(variable, Mean_Treatment, Mean_Kontrolle, Differenz, Signifikanz)
+
 ```
 
 g) Wenn Sie sich nun die Balancing Tabelle anschauen, wo finden Sie signifikante Unterschiede zwischen der Treatment und Kontrollgruppe?
@@ -180,7 +182,7 @@ g) Wenn Sie sich nun die Balancing Tabelle anschauen, wo finden Sie signifikante
 Schreiben Sie die Nummer der Variablen:
 ```{r "1_g"}
 
-# enter your code here ...
+3
 
 ```
 
@@ -193,17 +195,19 @@ Wir wollen uns im folgenden unsere ersten deskriptiven Ergebnisse in einer Regre
 h) Führen Sie folgenden Code aus. Fügen Sie zu dem Code noch eine dritte Regression hinzu, in der Sie zusätzlich sowohl (in dieser Reihenfolge) für age_baseline, age_baseline_sq, kids_no, famstruct_baseline, grandmother_baseline, edu_mo , edu_fa, employed_mo_baseline, mo_emp, incomeindex und mspss_tot kontrollieren und speichern Sie diese in `reg3`.
 
 ```{r "1_h"}
+
 reg1 <- lm(depressed_1y ~ treat, data=thp)
 reg2 <- lm(depressed_1y ~ treat + depindex_0, data=thp)
-
-# enter your code here ...
+reg3 <- lm(depressed_1y ~ treat + depindex_0 + age_baseline + age_baseline_sq + kids_no + famstruct_baseline + grandmother_baseline + edu_mo + edu_fa + employed_mo_baseline + incomeindex + mspss_tot, data=thp)
 
 ```
 Hier wäre ein guter Zeitpunkt das Addin 'Check Problemset' auszuführen!
 
 i) Der folgende Code nutzt `stargazer` um die 3 Regressionen im typischen Tabellenformat nebeneinander darzustellen:
 ```{r "1_i"}
+
 stargazer( reg1, reg2, reg3 ,type = "text",  digits=2, omit.stat = c("f","ser"))
+
 ```
 
 Betrachten Sie die Regressionstabelle. Welche dieser Aussagen sind alle korrekt?
@@ -219,7 +223,7 @@ Betrachten Sie die Regressionstabelle. Welche dieser Aussagen sind alle korrekt?
 Schreiben Sie einen Vektor mit den Nummern der richtigen Interpretation(en):
 ```{r "1_i_2"}
 
-# enter your code here ...
+c(2,4)
 
 ```
 Hier wäre ein guter Zeitpunkt das Addin 'Check Problemset' auszuführen!
@@ -239,7 +243,7 @@ j) Betrachten Sie die Regressionstabelle. Welche Aussage ist korrekt?
 Schreiben Sie die Nummer der richtigen Antwort:
 ```{r "1_j"}
 
-# enter your code here ...
+2
 
 ```
 
@@ -253,10 +257,12 @@ Im Folgenden betrachten wir eine weitere Möglichkeit das Endogenitätsproblem z
 
 a) Der Datensatz `Fertility` aus dem Paket `AER` enthält die Daten aus einer Befragung von 250 000 Frauen im Alter von 21 bis 35 Jahren mit mind. 2 Kindern aus dem Jahr 1980. Lassen Sie folgenden Code laufen um die Daten in einer Variablen zu speichern und einen Überblick zu erhalten:
 ```{r "2_a"}
+
 library(AER)
 data(Fertility)
 head(Fertility)
 skim(Fertility)
+
 ```
 
 Für eine Erklärung der Variablen geben Sie einfach `help(Fertility)` in der R Konsole ein.
@@ -271,21 +277,22 @@ Welche Bedeutung hat die Variable `work`
 
 ```{r "2_a_2",optional=TRUE}
 
-# enter your code here ...
+2
 
 ```
 
 b) Führen Sie nun eine einfache lineare Regression durch in der Sie den Zusammenhang untersuchen ob eine Frau mit mehr als zwei Kindern mit einer geringeren Wahrscheinlichkeit im vergangenen Jahr gearbeitet hat als eine mit zwei Kinder. Speichern Sie das Ergebnis als `reg1` und zeigen Sie ein `summary` von `reg1`.
 
 ```{r "2_b"}
+
 Fertility <- Fertility %>%
   mutate(work01 = case_when(work > 0 ~ 1,
                             work == 0 ~ 0))
 
-# enter your code here ...
+# Erstellen der Regression
+reg1 <- lm(work01 ~ morekids, data=Fertility)
 
-
-# enter your code here ...
+summary(reg1)
 
 ```
 Hier wäre ein guter Zeitpunkt das Addin 'Check Problemset' auszuführen!
@@ -301,7 +308,7 @@ c) Nun ein kleines Quiz. Welche Aussage ist korrekt?
 Schreiben Sie hier die Nummer der Aussage:
 ```{r "2_c",optional=TRUE}
 
-# enter your code here ...
+2
 
 ```
 Hier wäre ein guter Zeitpunkt das Addin 'Check Problemset' auszuführen!
@@ -319,6 +326,7 @@ Welches der folgenden Pfeildiagramme zeigt eine geeignete Instrumentalvariable?
 > Diagramm 1:
 
 ```{r "2_d"}
+
 grViz('digraph G {
 
 x [label="erklärende Variable x"]
@@ -329,11 +337,13 @@ x -> y [label="+"];
 z -> x [label="+"];
 z -> y [label="+"];
 }')
+
 ```
 
 > Diagramm 2:
 
 ```{r "2_d_2"}
+
 grViz('digraph G {
 
 x [label="erklärende Variable x"]
@@ -343,11 +353,13 @@ z [label="Instrument z"]
 x -> y [label="-"];
 z -> y [label="+"];
 }')
+
 ```
 
 > Diagramm 3:
 
 ```{r "2_d_3"}
+
 grViz('digraph G {
 
 x [label="erklärende Variable x"]
@@ -357,12 +369,13 @@ z [label="Instrument z"]
 x -> y [label="-"];
 z -> x [label="+"];
 }')
+
 ```
 
 Schreiben Sie hier die Nummer der Variablen:
 ```{r "2_d_4"}
 
-# enter your code here ...
+3
 
 ```
 
@@ -375,6 +388,7 @@ e) Im folgenden sind drei potentielle Instrumentalvariablen mit drei Regressione
 > Instrumentalvariable 3: Dummy ob die ersten beiden Kinder das gleiche Geschlecht hatten.
 
 ```{r "2_e"}
+
 Fertility <- Fertility %>%
   mutate(morekids = ifelse(morekids== "yes", 1, 0)) %>%
   mutate(afam = ifelse(afam== "yes", 1, 0)) %>%
@@ -390,12 +404,13 @@ reg2 <- Fertility %>%
   lm(morekids ~ same_sex, data=.)
 
  stargazer(reg1, reg2, reg3, type = "text", digits=3)
+ 
 ```
 
 Schreiben Sie hier die Nummer der Variablen:
 ```{r "2_e_2"}
 
-# enter your code here ...
+3
 
 ```
 
@@ -439,7 +454,7 @@ Welcher Interpretation würden Sie zustimmen:
 Schreiben Sie hier die Nummer der Interpretation:
 ```{r "2_f_2"}
 
-# enter your code here ...
+2
 
 ```
 
@@ -448,7 +463,7 @@ g) Welche der Interpretationen der vorherigen Aufgabe sind kausale Formulierunge
 Schreiben Sie einen Vektor mit den Nummern der richtigen Interpretationen:
 ```{r "2_g",optional=TRUE}
 
-# enter your code here ...
+
 
 ```
 Hier wäre ein guter Zeitpunkt das Addin 'Check Problemset' auszuführen!
